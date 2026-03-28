@@ -582,6 +582,101 @@
 }
 
 /* ================================================
+   COMPLETE THE LOOK
+   ================================================ */
+.complete-look__header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.complete-look__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.complete-look__card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
+}
+
+.complete-look__card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.complete-look__image {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.complete-look__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.complete-look__card:hover .complete-look__image img {
+  transform: scale(1.03);
+}
+
+.complete-look__info {
+  padding: var(--space-md);
+}
+
+.complete-look__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-medium);
+  color: var(--color-heading);
+  margin-bottom: var(--space-sm);
+}
+
+.complete-look__items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-sm);
+}
+
+.complete-look__items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-caption);
+}
+
+.complete-look__items li:last-child {
+  border-bottom: none;
+}
+
+.complete-look__items a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.complete-look__items a:hover {
+  color: var(--color-accent);
+}
+
+.complete-look__items span {
+  color: var(--color-text);
+  font-weight: var(--weight-regular);
+}
+
+.complete-look__total {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-regular);
+  color: var(--color-heading);
+  padding-top: var(--space-xs);
+}
+
+/* ================================================
    PRODUCT PAGE RESPONSIVE
    ================================================ */
 @media (max-width: 1024px) {
@@ -635,5 +730,10 @@
 
   .filter-bar__btn {
     white-space: nowrap;
+  }
+
+  .complete-look__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
   }
 }

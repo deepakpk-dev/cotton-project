@@ -14,53 +14,15 @@
 
 ## Brand Design System
 
-### Color Palette
+All design tokens (colors, typography, spacing) are in `/website/css/variables.css`. Always use CSS variables — never hardcode hex values or font names.
 
-| Role | Hex | Usage |
-|------|-----|-------|
-| Background | `#FAF7F2` | Main background — never use pure white |
-| Secondary BG | `#F5E6E0` | Section dividers, newsletter area |
-| Primary Text | `#3D3633` | Body copy |
-| Heading Text | `#2C2220` | Headlines, nav, brand name |
-| Primary Accent | `#C4A08A` | CTAs, hover states, price display |
-| Secondary Accent | `#D5C8D9` | Tags, badges, secondary buttons |
-| Warm Accent | `#C89B7B` | Sale tags, seasonal highlights |
-| Sustainability | `#9BAF93` | Certification badges, eco-labels |
-| Border/Divider | `#E8E0D8` | Card borders, form fields |
+**Color rules**: Never use `#FFFFFF` or `#000000`. Accent colors max 15% of any page. Sage green `#9BAF93` for eco/sustainability elements only.
 
-**Rules**: Never use `#FFFFFF` or `#000000`. Accent colors max 15% of any page.
-
-### Typography
-
-- **Headings**: Cormorant Garamond (weights 300, 400, 500) — loaded from Google Fonts
-- **Body/UI**: Jost (weights 300, 400) — loaded from Google Fonts
+### Typography rules
+- **Headings**: Cormorant Garamond — **Body/UI**: Jost (both from Google Fonts)
 - **Minimum body size**: 16px (non-negotiable for 35-55 demographic)
-- **Line-height**: 1.7 body, 1.3 headings
 - **H1**: 56-64px desktop / 36-40px mobile, uppercase, 0.15em letter-spacing
 - **Navigation**: 13-14px, uppercase, 0.12em letter-spacing
-
-### CSS Variables
-
-All design tokens are defined in `/website/css/variables.css`. Always use CSS variables — never hardcode color hex values or font names directly in component CSS.
-
----
-
-## Website Structure (`/website`)
-
-```
-website/
-├── index.html          # Homepage
-├── collection.html     # Collection/catalog page
-├── product.html        # Product detail page
-├── css/
-│   ├── variables.css   # Design tokens (colors, fonts, spacing)
-│   ├── base.css        # Reset, global styles
-│   ├── components.css  # Reusable components (buttons, cards, nav)
-│   ├── pages.css       # Page-specific styles
-│   └── responsive.css  # Breakpoint overrides
-└── js/
-    └── main.js         # Site interactions
-```
 
 ---
 
@@ -137,15 +99,6 @@ website/
 ---
 
 ## Shopify Implementation (When Building)
-
-### Recommended Apps
-1. Shopify Translate & Adapt — DE/EN multilingual
-2. Klarna Payments
-3. Kiwi Size Chart — visual size guides (reduces returns)
-4. Loox or Judge.me — photo reviews
-5. Klaviyo — email flows
-6. Trusted Shops — German trust seal
-7. Shopify Markets — multi-currency, tax
 
 ### Launch Checklist
 - 15-25 products (one full capsule collection)

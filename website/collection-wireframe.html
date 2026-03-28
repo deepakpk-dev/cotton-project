@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TARA Collection Page Wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* ---- Reset & Base ---- */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 100%; }
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #3D3633;
+      background-color: #f0ece6;
+    }
+
+    /* ---- Wireframe Styles ---- */
+    .wf-page {
+      max-width: 1440px;
+      margin: 0 auto;
+      background: #FAF7F2;
+      box-shadow: 0 0 60px rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    .wf-section {
+      position: relative;
+      border: 2px dashed #C4A08A;
+      margin: 0;
+    }
+
+    .wf-section::before {
+      content: attr(data-section);
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      background: #C4A08A;
+      color: #2C2220;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      z-index: 10;
+    }
+
+    .wf-box {
+      background: #E8E0D8;
+      border: 1px solid #d5cdc4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3D3633;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      text-align: center;
+      position: relative;
+    }
+
+    .wf-box--image {
+      background: repeating-linear-gradient(
+        45deg,
+        #E8E0D8,
+        #E8E0D8 10px,
+        #ded6cc 10px,
+        #ded6cc 20px
+      );
+      position: relative;
+    }
+
+    .wf-box--image::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border: 2px solid #b0a89e;
+      border-radius: 50%;
+      background: transparent;
+    }
+
+    .wf-box--image::before {
+      content: attr(data-label);
+      position: relative;
+      z-index: 1;
+      background: rgba(250,247,242,0.85);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+
+    .wf-text {
+      font-family: 'Jost', sans-serif;
+      color: #3D3633;
+    }
+
+    .wf-heading {
+      font-family: 'Cormorant Garamond', serif;
+      color: #2C2220;
+    }
+
+    .wf-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #C4A08A;
+      color: #2C2220;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: default;
+    }
+
+    .wf-btn--outline {
+      background: transparent;
+      border: 1.5px solid #2C2220;
+      color: #2C2220;
+    }
+
+    .wf-btn--dark {
+      background: #2C2220;
+      color: #FAF7F2;
+    }
+
+    /* ---- Annotation Sidebar ---- */
+    .wf-annotation {
+      position: absolute;
+      right: -220px;
+      background: #FFF8E7;
+      border: 1px solid #E8D5A0;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 11px;
+      line-height: 1.5;
+      width: 200px;
+      color: #5C4B2A;
+      z-index: 20;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .wf-annotation::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 14px;
+      width: 0; height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 8px solid #E8D5A0;
+    }
+
+    .wf-dim {
+      font-size: 10px;
+      color: #9C7E8C;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+
+    /* ---- Title Bar ---- */
+    .wf-title-bar {
+      background: #2C2220;
+      color: #FAF7F2;
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wf-title-bar h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 24px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .wf-title-bar span {
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    /* ---- Legend ---- */
+    .wf-legend {
+      display: flex;
+      gap: 24px;
+      padding: 16px 32px;
+      background: #FAF7F2;
+      border-bottom: 1px solid #E8E0D8;
+      flex-wrap: wrap;
+    }
+
+    .wf-legend__item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #3D3633;
+    }
+
+    .wf-legend__swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 3px;
+      border: 1px solid #d5cdc4;
+    }
+
+    /* ================================================
+       SECTION 1: ANNOUNCEMENT BAR
+       ================================================ */
+    .wf-announcement {
+      background: #F5E6E0;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      min-height: 40px;
+    }
+
+    .wf-announcement .wf-text {
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .wf-announcement .wf-close {
+      position: absolute;
+      right: 16px;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #3D3633;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #3D3633;
+    }
+
+    /* ================================================
+       SECTION 2: HEADER / NAVIGATION
+       ================================================ */
+    .wf-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      padding: 0 24px;
+      border-bottom: 1px solid #E8E0D8;
+      background: #FAF7F2;
+    }
+
+    .wf-header__left {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex: 1;
+    }
+
+    .wf-header__nav-link {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2C2220;
+      text-decoration: none;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .wf-header__nav-link--active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #C4A08A;
+    }
+
+    .wf-header__logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #2C2220;
+    }
+
+    .wf-header__actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .wf-icon {
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #2C2220;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: #2C2220;
+    }
+
+    .wf-lang {
+      font-size: 11px;
+      color: #3D3633;
+      margin-right: 8px;
+    }
+
+    .wf-lang strong { font-weight: 400; color: #2C2220; }
+    .wf-lang span { opacity: 0.4; }
+
+    /* ---- Mega Menu Preview ---- */
+    .wf-mega-menu {
+      border: 1px solid #E8E0D8;
+      border-radius: 6px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      background: #FAF7F2;
+      margin-top: 8px;
+    }
+
+    .wf-mega-menu__col h4 {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #C4A08A;
+      margin-bottom: 10px;
+    }
+
+    .wf-mega-menu__col a {
+      display: block;
+      font-size: 14px;
+      color: #3D3633;
+      padding: 4px 0;
+      text-decoration: none;
+    }
+
+    /* ================================================
+       SECTION 3: BREADCRUMBS (NEW)
+       ================================================ */
+    .wf-breadcrumbs {
+      padding: 14px 48px;
+      font-size: 13px;
+      color: #3D3633;
+      border-bottom: 1px solid #E8E0D8;
+    }
+
+    .wf-breadcrumbs .sep {
+      opacity: 0.35;
+      margin: 0 10px;
+    }
+
+    .wf-breadcrumbs .current {
+      opacity: 0.55;
+    }
+
+    /* ================================================
+       SECTION 4: COLLECTION HERO (shorter than homepage)
+       ================================================ */
+    .wf-collection-hero {
+      height: 50vh;
+      min-height: 350px;
+      max-height: 550px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wf-hero__bg {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        #d5cdc4,
+        #d5cdc4 15px,
+        #cec5bb 15px,
+        #cec5bb 30px
+      );
+    }
+
+    .wf-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(44,34,32,0.1), rgba(44,34,32,0.35));
+    }
+
+    .wf-hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #FAF7F2;
+      max-width: 700px;
+      padding: 24px;
+    }
+
+    .wf-hero__subtitle {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+
+    .wf-hero__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .wf-hero__desc {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* ================================================
+       SECTION 5: COLLECTION INTRO
+       ================================================ */
+    .wf-collection-intro {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    .wf-collection-intro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 400;
+      color: #2C2220;
+      margin-bottom: 20px;
+    }
+
+    .wf-collection-intro p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #3D3633;
+      margin-bottom: 16px;
+    }
+
+    .wf-collection-intro .wf-label {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C4A08A;
+      margin-bottom: 12px;
+    }
+
+    /* ================================================
+       SECTION 6: LOOKBOOK GALLERY
+       ================================================ */
+    .wf-lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-flow: dense;
+      gap: 12px;
+      padding: 0 48px 64px;
+    }
+
+    .wf-lookbook-grid__item {
+      aspect-ratio: 3/4;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .wf-lookbook-grid__item--wide {
+      grid-column: span 2;
+      aspect-ratio: 3/2;
+    }
+
+    /* ================================================
+       SECTION 7: FILTER BAR
+       ================================================ */
+    .wf-filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 48px;
+      border-top: 1px solid #E8E0D8;
+      border-bottom: 1px solid #E8E0D8;
+      background: #FAF7F2;
+    }
+
+    .wf-filter-bar__pills {
+      display: flex;
+      gap: 8px;
+    }
+
+    .wf-filter-pill {
+      padding: 6px 16px;
+      border: 1px solid #E8E0D8;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 400;
+      color: #3D3633;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wf-filter-pill .chevron {
+      font-size: 10px;
+      opacity: 0.5;
+    }
+
+    .wf-filter-bar__right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: #3D3633;
+    }
+
+    .wf-filter-bar__sort {
+      padding: 6px 14px;
+      border: 1px solid #E8E0D8;
+      border-radius: 4px;
+      font-size: 13px;
+      background: transparent;
+      color: #3D3633;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wf-filter-bar__count {
+      opacity: 0.55;
+    }
+
+    /* ================================================
+       SECTION 8: PRODUCT GRID
+       ================================================ */
+    .wf-products {
+      padding: 48px 48px 32px;
+    }
+
+    .wf-products__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 8px;
+    }
+
+    .wf-product-card {
+      position: relative;
+    }
+
+    .wf-product-card__image {
+      aspect-ratio: 3/4;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .wf-product-card__badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #D5C8D9;
+      color: #2C2220;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .wf-product-card__wishlist {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      background: rgba(250,247,242,0.9);
+      border-radius: 50%;
+      border: 1px solid #E8E0D8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      z-index: 2;
+    }
+
+    .wf-product-card__hover-note {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(44,34,32,0.7);
+      color: #FAF7F2;
+      font-size: 10px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .wf-product-card__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #2C2220;
+      margin-bottom: 4px;
+    }
+
+    .wf-product-card__price {
+      font-size: 16px;
+      font-weight: 300;
+      color: #3D3633;
+      margin-bottom: 8px;
+    }
+
+    .wf-product-card__price small {
+      font-size: 11px;
+      opacity: 0.5;
+    }
+
+    .wf-product-card__colors {
+      display: flex;
+      gap: 6px;
+    }
+
+    .wf-color-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid #E8E0D8;
+    }
+
+    /* ================================================
+       SECTION 9: LOAD MORE
+       ================================================ */
+    .wf-load-more {
+      text-align: center;
+      padding: 16px 0 64px;
+    }
+
+    .wf-load-more .wf-dim {
+      margin-top: 10px;
+    }
+
+    /* ================================================
+       SECTION 10: COMPLETE THE LOOK
+       ================================================ */
+    .wf-complete-look {
+      padding: 96px 48px;
+    }
+
+    .wf-complete-look__header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .wf-complete-look__header .wf-label {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C4A08A;
+      margin-bottom: 12px;
+    }
+
+    .wf-complete-look__header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 400;
+      color: #2C2220;
+    }
+
+    .wf-complete-look__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .wf-complete-look__card {
+      border: 1px solid #E8E0D8;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .wf-complete-look__image {
+      aspect-ratio: 4/3;
+    }
+
+    .wf-complete-look__info {
+      padding: 16px;
+    }
+
+    .wf-complete-look__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #2C2220;
+      margin-bottom: 12px;
+    }
+
+    .wf-complete-look__item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #3D3633;
+      padding: 6px 0;
+      border-bottom: 1px dotted #E8E0D8;
+    }
+
+    .wf-complete-look__total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 400;
+      color: #2C2220;
+      margin-top: 12px;
+      padding-top: 8px;
+      border-top: 1px solid #E8E0D8;
+    }
+
+    /* ================================================
+       SECTION 11: BEHIND THE SCENES
+       ================================================ */
+    .wf-behind-scenes {
+      background: #F5E6E0;
+      padding: 96px 48px;
+    }
+
+    .wf-editorial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .wf-editorial__text {
+      padding: 24px 0;
+    }
+
+    .wf-editorial__label {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #C4A08A;
+      margin-bottom: 12px;
+    }
+
+    .wf-editorial__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 400;
+      color: #2C2220;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .wf-editorial__body {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #3D3633;
+      margin-bottom: 16px;
+      max-width: 520px;
+    }
+
+    .wf-editorial__body:last-of-type {
+      margin-bottom: 32px;
+    }
+
+    .wf-editorial__image {
+      aspect-ratio: 3/4;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* ================================================
+       SECTION 12: NEWSLETTER
+       ================================================ */
+    .wf-newsletter {
+      background: #F5E6E0;
+      padding: 96px 48px;
+      text-align: center;
+    }
+
+    .wf-newsletter h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 400;
+      color: #2C2220;
+      margin-bottom: 8px;
+    }
+
+    .wf-newsletter__desc {
+      font-size: 16px;
+      color: #3D3633;
+      max-width: 500px;
+      margin: 0 auto 32px;
+    }
+
+    .wf-newsletter__form {
+      display: flex;
+      max-width: 480px;
+      margin: 0 auto 16px;
+    }
+
+    .wf-newsletter__input {
+      flex: 1;
+      height: 48px;
+      border: 1.5px solid #E8E0D8;
+      border-right: none;
+      border-radius: 4px 0 0 4px;
+      background: #FAF7F2;
+      padding: 0 16px;
+      font-size: 14px;
+      color: #3D3633;
+      display: flex;
+      align-items: center;
+    }
+
+    .wf-newsletter__submit {
+      height: 48px;
+      padding: 0 24px;
+      background: #C4A08A;
+      color: #2C2220;
+      border: 1.5px solid #C4A08A;
+      border-radius: 0 4px 4px 0;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+    }
+
+    .wf-newsletter__gdpr {
+      font-size: 11px;
+      color: #3D3633;
+      opacity: 0.6;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ================================================
+       SECTION 13: FOOTER
+       ================================================ */
+    .wf-footer {
+      background: #2C2220;
+      color: #FAF7F2;
+      padding: 64px 48px 32px;
+    }
+
+    .wf-footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .wf-footer__brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .wf-footer__brand-text {
+      font-size: 13px;
+      color: #A89A92;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .wf-footer__heading {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .wf-footer__link {
+      display: block;
+      font-size: 13px;
+      color: #A89A92;
+      margin-bottom: 10px;
+    }
+
+    .wf-footer__bottom {
+      border-top: 1px solid rgba(250,247,242,0.12);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .wf-footer__legal {
+      font-size: 12px;
+      color: #A89A92;
+    }
+
+    .wf-footer__legal a {
+      color: #A89A92;
+      text-decoration: none;
+    }
+
+    .wf-footer__certs {
+      display: flex;
+      gap: 12px;
+    }
+
+    .wf-footer__cert {
+      font-size: 11px;
+      color: #A89A92;
+      border: 1px solid rgba(250,247,242,0.2);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wf-footer__cert .dot {
+      width: 8px;
+      height: 8px;
+      background: #9BAF93;
+      border-radius: 50%;
+    }
+
+    .wf-footer__payments {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      color: #A89A92;
+    }
+
+    /* ================================================
+       COOKIE BANNER
+       ================================================ */
+    .wf-cookie {
+      background: #FAF7F2;
+      border-top: 1px solid #E8E0D8;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .wf-cookie__text {
+      font-size: 12px;
+      color: #3D3633;
+      max-width: 500px;
+    }
+
+    .wf-cookie__btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* ================================================
+       OVERLAYS
+       ================================================ */
+    .wf-overlays {
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .wf-overlay-preview {
+      border: 2px dashed #D5C8D9;
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .wf-overlay-preview::before {
+      content: attr(data-label);
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      background: #D5C8D9;
+      color: #2C2220;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+    }
+
+    .wf-overlay-preview__body {
+      margin-top: 24px;
+    }
+
+    /* ---- Bottom Nav ---- */
+    .wf-bottom-nav {
+      display: flex;
+      height: 60px;
+      border-top: 1px solid #E8E0D8;
+      background: #FAF7F2;
+    }
+
+    .wf-bottom-nav__item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      font-size: 9px;
+      color: #3D3633;
+    }
+
+    .wf-bottom-nav__item--active {
+      color: #C4A08A;
+    }
+
+    .wf-bottom-nav__icon {
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid currentColor;
+      border-radius: 3px;
+    }
+
+    /* ================================================
+       SPEC TABLES
+       ================================================ */
+    .wf-spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .wf-spec-table th,
+    .wf-spec-table td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid #E8E0D8;
+    }
+
+    .wf-spec-table th {
+      font-weight: 400;
+      color: #2C2220;
+      background: rgba(196,160,138,0.1);
+    }
+
+    .wf-spec-table td {
+      color: #3D3633;
+    }
+
+    /* ---- Breakpoints Diagram ---- */
+    .wf-breakpoints__bar {
+      display: flex;
+      height: 48px;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .wf-breakpoints__segment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 400;
+      color: #FAF7F2;
+    }
+
+    /* ---- Filter Preview Styles ---- */
+    .wf-filter-preview__row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 13px;
+      color: #3D3633;
+    }
+
+    .wf-filter-preview__checkbox {
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid #E8E0D8;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+
+    .wf-filter-preview__checkbox--checked {
+      background: #C4A08A;
+      border-color: #C4A08A;
+      color: #FAF7F2;
+    }
+
+    .wf-filter-preview__swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1.5px solid #E8E0D8;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       WIREFRAME TITLE
+       ============================================ -->
+  <div class="wf-title-bar">
+    <h1>TARA</h1>
+    <span>Collection Page Wireframe &mdash; v1.0 &mdash; Lumi&egrave;re Douce FS 2026</span>
+  </div>
+
+  <!-- ============================================
+       COLOR & TYPOGRAPHY LEGEND
+       ============================================ -->
+  <div class="wf-legend">
+    <div class="wf-legend__item"><div class="wf-legend__swatch" style="background:#FAF7F2"></div> Background #FAF7F2</div>
+    <div class="wf-legend__item"><div class="wf-legend__swatch" style="background:#F5E6E0"></div> Blush #F5E6E0</div>
+    <div class="wf-legend__item"><div class="wf-legend__swatch" style="background:#C4A08A"></div> Accent #C4A08A</div>
+    <div class="wf-legend__item"><div class="wf-legend__swatch" style="background:#D5C8D9"></div> Lavender #D5C8D9</div>
+    <div class="wf-legend__item"><div class="wf-legend__swatch" style="background:#9BAF93"></div> Sage #9BAF93</div>
+    <div class="wf-legend__item"><div class="wf-legend__swatch" style="background:#2C2220"></div> Espresso #2C2220</div>
+    <div class="wf-legend__item"><div class="wf-legend__swatch" style="background:#E8E0D8"></div> Border #E8E0D8</div>
+    <div class="wf-legend__item" style="margin-left: auto; font-style: italic; opacity:0.6;">Headings: Cormorant Garamond &bull; Body: Jost</div>
+  </div>
+
+  <div class="wf-page">
+
+    <!-- ============================================
+         SECTION 1: ANNOUNCEMENT BAR
+         ============================================ -->
+    <div class="wf-section" data-section="Section 1 &mdash; Announcement Bar &bull; Height: 40px">
+      <div class="wf-announcement">
+        <span class="wf-text">Kostenloser Versand ab 75&euro; &nbsp;&bull;&nbsp; Fr&uuml;hling/Sommer Kollektion 2026 jetzt entdecken</span>
+        <div class="wf-close">&times;</div>
+      </div>
+    </div>
+
+    <!-- ============================================
+         SECTION 2: STICKY HEADER / NAVIGATION
+         ============================================ -->
+    <div class="wf-section" data-section="Section 2 &mdash; Sticky Header &bull; Height: 72px &bull; Transparent &rarr; #FAF7F2 on scroll" style="position: relative;">
+      <div class="wf-header" style="position: relative;">
+        <div class="wf-header__left">
+          <span class="wf-header__nav-link wf-header__nav-link--active">Kollektionen</span>
+          <span class="wf-header__nav-link">Materialien</span>
+          <span class="wf-header__nav-link">Lookbook</span>
+        </div>
+        <div class="wf-header__logo">TARA</div>
+        <div class="wf-header__actions">
+          <div class="wf-lang"><strong>DE</strong> <span>|</span> EN</div>
+          <div class="wf-icon" title="Search">S</div>
+          <div class="wf-icon" title="Account">A</div>
+          <div class="wf-icon" title="Wishlist">W</div>
+          <div class="wf-icon" title="Cart" style="position:relative;">C <span style="position:absolute;top:-4px;right:-4px;width:12px;height:12px;background:#C4A08A;border-radius:50%;font-size:8px;display:flex;align-items:center;justify-content:center;">0</span></div>
+        </div>
+      </div>
+
+      <!-- Mega Menu Preview -->
+      <div style="padding: 0 48px 16px;">
+        <p style="font-size:11px; color:#C4A08A; margin-bottom: 4px; letter-spacing:0.08em; text-transform:uppercase;">Mega Menu (on hover "Kollektionen")</p>
+        <div class="wf-mega-menu">
+          <div class="wf-mega-menu__col">
+            <h4>Aktuell</h4>
+            <a>Fr&uuml;hling/Sommer 2026</a>
+            <a>Essentials</a>
+            <a>Neu eingetroffen</a>
+          </div>
+          <div class="wf-mega-menu__col">
+            <h4>Kategorie</h4>
+            <a>Kleider</a>
+            <a>Blusen &amp; Tops</a>
+            <a>Hosen</a>
+            <a>Strickwaren</a>
+            <a>Alle ansehen</a>
+          </div>
+          <div class="wf-mega-menu__col">
+            <h4>Highlights</h4>
+            <a>Bestseller</a>
+            <a>Capsule Garderobe</a>
+            <a>Leinen &amp; Baumwolle</a>
+          </div>
+          <div class="wf-mega-menu__col">
+            <div class="wf-box wf-box--image" style="aspect-ratio:3/4; height: 160px;" data-label="Collection Image"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================
+         SECTION 3: BREADCRUMBS
+         ============================================ -->
+    <div class="wf-section" data-section="Section 3 &mdash; Breadcrumbs &bull; Height: ~44px" style="position:relative;">
+      <div class="wf-breadcrumbs">
+        Home <span class="sep">/</span> Kollektionen <span class="sep">/</span> <span class="current">Lumi&egrave;re Douce FS 2026</span>
+      </div>
+      <div class="wf-annotation" style="top:4px;">Links navigierbar. Letztes Element = aktuelle Seite, kein Link. Keyboard-fokussierbar.</div>
+    </div>
+
+    <!-- ============================================
+         SECTION 4: COLLECTION HERO
+         ============================================ -->
+    <div class="wf-section" data-section="Section 4 &mdash; Collection Hero &bull; 50vh (350&ndash;550px) &bull; Gradient overlay" style="position:relative;">
+      <div class="wf-collection-hero">
+        <div class="wf-hero__bg"></div>
+        <div class="wf-hero__overlay"></div>
+        <div class="wf-hero__content">
+          <p class="wf-hero__subtitle">Fr&uuml;hling / Sommer 2026</p>
+          <h1 class="wf-hero__title">Lumi&egrave;re Douce</h1>
+          <p class="wf-hero__desc">Zeitlose Silhouetten in feinster Baumwolle, inspiriert vom sanften Licht der goldenen Stunde.</p>
+        </div>
+      </div>
+      <p class="wf-dim" style="text-align:center; padding:6px 0;">50vh &bull; min-height: 350px &bull; max-height: 550px &bull; Kein CTA-Button</p>
+      <div class="wf-annotation" style="top:60px;">K&uuml;rzer als Homepage-Hero (50vh vs 85vh). Kein CTA-Button &mdash; Nutzer scrollt direkt in die Kollektion. Hintergrundbild: 2400&times;1200px max, &lt;300KB.</div>
+    </div>
+
+    <!-- ============================================
+         SECTION 5: COLLECTION INTRO / STORY
+         ============================================ -->
+    <div class="wf-section" data-section="Section 5 &mdash; Collection Intro &bull; Centered text &bull; max-width 780px" style="position:relative;">
+      <div class="wf-collection-intro">
+        <p class="wf-label">Die Geschichte</p>
+        <h2>Inspiriert von der Leichtigkeit des Seins</h2>
+        <p>Unsere Fr&uuml;hling/Sommer 2026 Kollektion &bdquo;Lumi&egrave;re Douce&ldquo; ist eine Liebeserkl&auml;rung an die Verg&auml;nglichkeit sch&ouml;ner Momente &mdash; von den sanften Cremt&ouml;nen der Morgend&auml;mmerung bis zum warmen Ros&eacute; des Sonnenuntergangs.</p>
+        <p>Jedes St&uuml;ck wurde entworfen, um den Alltag mit einer leisen Eleganz zu begleiten. Nat&uuml;rliche Baumwolle, flie&szlig;ende Schnitte und eine Farbpalette, die die goldene Stunde einf&auml;ngt.</p>
+      </div>
+      <div class="wf-annotation" style="top:40px;">Lesebreite begrenzt auf ~780px. Zentriert. Rein textlich &mdash; kein Bild. Set reading-width token.</div>
+    </div>
+
+    <!-- ============================================
+         SECTION 6: LOOKBOOK GALLERY
+         ============================================ -->
+    <div class="wf-section" data-section="Section 6 &mdash; Lookbook Gallery &bull; 3-col grid &bull; 2 wide items (span 2 cols)" style="position:relative;">
+      <div style="padding: 48px 0 0;">
+        <div class="wf-lookbook-grid">
+          <div class="wf-lookbook-grid__item wf-lookbook-grid__item--wide">
+            <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Lookbook Wide (3:2)"></div>
+          </div>
+          <div class="wf-lookbook-grid__item">
+            <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Lookbook Portrait (3:4)"></div>
+          </div>
+          <div class="wf-lookbook-grid__item">
+            <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Lookbook Portrait (3:4)"></div>
+          </div>
+          <div class="wf-lookbook-grid__item">
+            <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Lookbook Portrait (3:4)"></div>
+          </div>
+          <div class="wf-lookbook-grid__item wf-lookbook-grid__item--wide">
+            <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Lookbook Wide (3:2)"></div>
+          </div>
+        </div>
+      </div>
+      <div class="wf-annotation" style="top:40px;">Hover: leichter Zoom scale(1.03), 400ms. 5 Bilder: wide, 2&times; portrait, portrait, wide. grid-auto-flow: dense.</div>
+    </div>
+
+    <!-- ============================================
+         SECTION 7: FILTER BAR
+         ============================================ -->
+    <div class="wf-section" data-section="Section 7 &mdash; Filter Bar &bull; Sticky below header (top: 72px) &bull; Horizontal scroll on mobile" style="position:relative;">
+      <div class="wf-filter-bar">
+        <div class="wf-filter-bar__pills">
+          <div class="wf-filter-pill">Gr&ouml;&szlig;e <span class="chevron">&#9662;</span></div>
+          <div class="wf-filter-pill">Farbe <span class="chevron">&#9662;</span></div>
+          <div class="wf-filter-pill">Kategorie <span class="chevron">&#9662;</span></div>
+          <div class="wf-filter-pill">Preis <span class="chevron">&#9662;</span></div>
+          <div class="wf-filter-pill">Material <span class="chevron">&#9662;</span></div>
+        </div>
+        <div class="wf-filter-bar__right">
+          <span class="wf-filter-bar__count">18 St&uuml;cke</span>
+          <div class="wf-filter-bar__sort">Empfohlen <span class="chevron">&#9662;</span></div>
+        </div>
+      </div>
+      <div class="wf-annotation" style="top:4px;">Sticky unterhalb des Headers (top: 72px). Filter-Dropdowns &ouml;ffnen als Panels. Mobil: horizontaler Scroll der Pills.</div>
+    </div>
+
+    <!-- ============================================
+         SECTION 8: PRODUCT GRID
+         ============================================ -->
+    <div class="wf-section" data-section="Section 8 &mdash; Product Grid &bull; 3-col desktop, 2-col mobile &bull; 18 products (6 shown)" style="position:relative;">
+      <div class="wf-products">
+        <div class="wf-products__grid">
+
+          <!-- Product 1 -->
+          <div class="wf-product-card">
+            <div class="wf-product-card__image">
+              <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Product Image"></div>
+              <div class="wf-product-card__badge">Neu</div>
+              <div class="wf-product-card__wishlist">&hearts;</div>
+              <div class="wf-product-card__hover-note">Hover: crossfade to 2nd image</div>
+            </div>
+            <h3 class="wf-product-card__name">Wickelkleid Lumi&egrave;re</h3>
+            <p class="wf-product-card__price">&euro;98,00 <small>inkl. MwSt.</small></p>
+            <div class="wf-product-card__colors">
+              <span class="wf-color-dot" style="background:#F5F0E8"></span>
+              <span class="wf-color-dot" style="background:#C4A08A"></span>
+              <span class="wf-color-dot" style="background:#9BAF93"></span>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="wf-product-card">
+            <div class="wf-product-card__image">
+              <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Product Image"></div>
+              <div class="wf-product-card__wishlist">&hearts;</div>
+              <div class="wf-product-card__hover-note">Hover: crossfade to 2nd image</div>
+            </div>
+            <h3 class="wf-product-card__name">Oversized Bluse Aurore</h3>
+            <p class="wf-product-card__price">&euro;68,00 <small>inkl. MwSt.</small></p>
+            <div class="wf-product-card__colors">
+              <span class="wf-color-dot" style="background:#FFFFFF; border-color:#ccc;"></span>
+              <span class="wf-color-dot" style="background:#D5C8D9"></span>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="wf-product-card">
+            <div class="wf-product-card__image">
+              <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Product Image"></div>
+              <div class="wf-product-card__badge">Bestseller</div>
+              <div class="wf-product-card__wishlist">&hearts;</div>
+            </div>
+            <h3 class="wf-product-card__name">Culotte Brise</h3>
+            <p class="wf-product-card__price">&euro;76,00 <small>inkl. MwSt.</small></p>
+            <div class="wf-product-card__colors">
+              <span class="wf-color-dot" style="background:#E8E0D0"></span>
+              <span class="wf-color-dot" style="background:#2C2220"></span>
+            </div>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="wf-product-card">
+            <div class="wf-product-card__image">
+              <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Product Image"></div>
+              <div class="wf-product-card__wishlist">&hearts;</div>
+            </div>
+            <h3 class="wf-product-card__name">Essential Tee Douceur</h3>
+            <p class="wf-product-card__price">&euro;38,00 <small>inkl. MwSt.</small></p>
+            <div class="wf-product-card__colors">
+              <span class="wf-color-dot" style="background:#F5E6E0"></span>
+              <span class="wf-color-dot" style="background:#F5F0E8"></span>
+              <span class="wf-color-dot" style="background:#2C2220"></span>
+              <span class="wf-color-dot" style="background:#9BAF93"></span>
+            </div>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="wf-product-card">
+            <div class="wf-product-card__image">
+              <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Product Image"></div>
+              <div class="wf-product-card__wishlist">&hearts;</div>
+            </div>
+            <h3 class="wf-product-card__name">Strick-Cardigan Tendresse</h3>
+            <p class="wf-product-card__price">&euro;78,00 <small>inkl. MwSt.</small></p>
+            <div class="wf-product-card__colors">
+              <span class="wf-color-dot" style="background:#D5C8D9"></span>
+              <span class="wf-color-dot" style="background:#F5F0E8"></span>
+            </div>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="wf-product-card">
+            <div class="wf-product-card__image">
+              <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Product Image"></div>
+              <div class="wf-product-card__badge">Neu</div>
+              <div class="wf-product-card__wishlist">&hearts;</div>
+            </div>
+            <h3 class="wf-product-card__name">Sommerkleid Aurore</h3>
+            <p class="wf-product-card__price">&euro;118,00 <small>inkl. MwSt.</small></p>
+            <div class="wf-product-card__colors">
+              <span class="wf-color-dot" style="background:#F5E6E0"></span>
+              <span class="wf-color-dot" style="background:#C89B7B"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="wf-annotation" style="top:40px;">3 Spalten Desktop, 2 Spalten Mobil. 18 Produkte insgesamt, 6 pro Seite. Hover: Crossfade zum zweiten Bild (400ms). Wishlist-Herz erscheint on hover.</div>
+    </div>
+
+    <!-- ============================================
+         SECTION 9: LOAD MORE / PAGINATION
+         ============================================ -->
+    <div class="wf-section" data-section="Section 9 &mdash; Load More / Pagination" style="position:relative;">
+      <div class="wf-load-more">
+        <div class="wf-btn wf-btn--outline">Mehr Produkte laden</div>
+        <p class="wf-dim" style="margin-top:10px;">Zeigt 6 von 18 St&uuml;cken</p>
+      </div>
+      <div class="wf-annotation" style="top:8px;">Button l&auml;dt n&auml;chste 6 Produkte per AJAX. Alternativ: Infinite Scroll (konfigurierbar in Shopify).</div>
+    </div>
+
+    <!-- ============================================
+         SECTION 10: COMPLETE THE LOOK
+         ============================================ -->
+    <div class="wf-section" data-section="Section 10 &mdash; Complete the Look &bull; 3-col styling suggestions" style="position:relative;">
+      <div class="wf-complete-look">
+        <div class="wf-complete-look__header">
+          <p class="wf-label">Styling-Vorschl&auml;ge</p>
+          <h2>Den Look vervollst&auml;ndigen</h2>
+        </div>
+        <div class="wf-complete-look__grid">
+
+          <!-- Look 1 -->
+          <div class="wf-complete-look__card">
+            <div class="wf-complete-look__image">
+              <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Lookbook Image"></div>
+            </div>
+            <div class="wf-complete-look__info">
+              <h3 class="wf-complete-look__name">Entspannter Sonntag</h3>
+              <div class="wf-complete-look__item"><span>Oversized Bluse Aurore</span><span>&euro;68</span></div>
+              <div class="wf-complete-look__item"><span>Culotte Brise</span><span>&euro;76</span></div>
+              <div class="wf-complete-look__item"><span>Strick-Cardigan Tendresse</span><span>&euro;78</span></div>
+              <div class="wf-complete-look__total"><span>Gesamter Look</span><span>&euro;222</span></div>
+            </div>
+          </div>
+
+          <!-- Look 2 -->
+          <div class="wf-complete-look__card">
+            <div class="wf-complete-look__image">
+              <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Lookbook Image"></div>
+            </div>
+            <div class="wf-complete-look__info">
+              <h3 class="wf-complete-look__name">Sommerabend</h3>
+              <div class="wf-complete-look__item"><span>Wickelkleid Lumi&egrave;re</span><span>&euro;98</span></div>
+              <div class="wf-complete-look__item"><span>Sommerkleid Aurore</span><span>&euro;118</span></div>
+              <div class="wf-complete-look__total"><span>Gesamter Look</span><span>&euro;216</span></div>
+            </div>
+          </div>
+
+          <!-- Look 3 -->
+          <div class="wf-complete-look__card">
+            <div class="wf-complete-look__image">
+              <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Lookbook Image"></div>
+            </div>
+            <div class="wf-complete-look__info">
+              <h3 class="wf-complete-look__name">B&uuml;ro-Eleganz</h3>
+              <div class="wf-complete-look__item"><span>Oversized Bluse Aurore</span><span>&euro;68</span></div>
+              <div class="wf-complete-look__item"><span>Weite Hose Soleil</span><span>&euro;85</span></div>
+              <div class="wf-complete-look__item"><span>Essential Tee Douceur</span><span>&euro;38</span></div>
+              <div class="wf-complete-look__total"><span>Gesamter Look</span><span>&euro;191</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="wf-annotation" style="top:40px;">Jede Karte verlinkt auf enthaltene Produkte. Quick-Add-to-Cart f&uuml;r gesamten Look geplant. Mobil: 1 Spalte, horizontal scrollbar.</div>
+    </div>
+
+    <!-- ============================================
+         SECTION 11: BEHIND THE SCENES
+         ============================================ -->
+    <div class="wf-section" data-section="Section 11 &mdash; Behind the Scenes &bull; #F5E6E0 blush bg &bull; 2-col editorial" style="position:relative;">
+      <div class="wf-behind-scenes">
+        <div class="wf-editorial">
+          <div class="wf-editorial__text">
+            <p class="wf-editorial__label">Hinter den Kulissen</p>
+            <h2 class="wf-editorial__title">Von der Faser zum Kleidungsst&uuml;ck</h2>
+            <p class="wf-editorial__body">Jedes St&uuml;ck der Lumi&egrave;re Douce Kollektion wurde in unserer Partnermanufaktur in Portugal gefertigt &mdash; mit Liebe zum Detail und Respekt f&uuml;r das Handwerk.</p>
+            <p class="wf-editorial__body">Von der GOTS-zertifizierten Bio-Baumwolle bis zur letzten Naht &mdash; Transparenz ist kein Schlagwort, sondern unser Versprechen.</p>
+            <div class="wf-btn wf-btn--outline">Unsere Werkstatt entdecken</div>
+          </div>
+          <div class="wf-editorial__image">
+            <div class="wf-box wf-box--image" style="width:100%;height:100%;" data-label="Production Close-up (3:4)"></div>
+          </div>
+        </div>
+      </div>
+      <div class="wf-annotation" style="top:60px;">Blush-Hintergrund #F5E6E0. Nachhaltigkeit subtil kommuniziert &mdash; kein Greenwashing. Sage green f&uuml;r Eco-Elemente.</div>
+    </div>
+
+    <!-- ============================================
+         SECTION 12: NEWSLETTER SIGNUP
+         ============================================ -->
+    <div class="wf-section" data-section="Section 12 &mdash; Newsletter Signup &bull; #F5E6E0 blush background &bull; GDPR notice">
+      <div class="wf-newsletter">
+        <h2>10% auf Ihre erste Bestellung</h2>
+        <p class="wf-newsletter__desc">Melden Sie sich an und erhalten Sie exklusiven Zugang zu neuen Kollektionen, Styling-Tipps und besonderen Angeboten.</p>
+        <div class="wf-newsletter__form">
+          <div class="wf-newsletter__input">Ihre E-Mail-Adresse</div>
+          <div class="wf-newsletter__submit">Anmelden</div>
+        </div>
+        <p class="wf-newsletter__gdpr">Mit der Anmeldung stimmen Sie unserer Datenschutzerkl&auml;rung zu. DSGVO-konform.</p>
+      </div>
+    </div>
+
+    <!-- ============================================
+         SECTION 13: FOOTER
+         ============================================ -->
+    <div class="wf-section" data-section="Section 13 &mdash; Footer &bull; #2C2220 espresso bg &bull; Legal links mandatory" style="border-color: #A89A92;">
+      <div class="wf-footer">
+        <div class="wf-footer__grid">
+          <div>
+            <div class="wf-footer__brand">TARA</div>
+            <p class="wf-footer__brand-text">Exklusive Baumwollkleidung in kuratierten Kapsulkollektionen. Zeitloses Design, gefertigt f&uuml;r Frauen, die Qualit&auml;t sch&auml;tzen.</p>
+          </div>
+          <div>
+            <h4 class="wf-footer__heading">Shop</h4>
+            <span class="wf-footer__link">Neue Kollektion</span>
+            <span class="wf-footer__link">Kleider</span>
+            <span class="wf-footer__link">Blusen &amp; Tops</span>
+            <span class="wf-footer__link">Hosen</span>
+            <span class="wf-footer__link">Strickwaren</span>
+          </div>
+          <div>
+            <h4 class="wf-footer__heading">&Uuml;ber uns</h4>
+            <span class="wf-footer__link">Unsere Geschichte</span>
+            <span class="wf-footer__link">Materialien &amp; Nachhaltigkeit</span>
+            <span class="wf-footer__link">Journal</span>
+            <span class="wf-footer__link">Karriere</span>
+          </div>
+          <div>
+            <h4 class="wf-footer__heading">Kundenservice</h4>
+            <span class="wf-footer__link">Kontakt</span>
+            <span class="wf-footer__link">Gr&ouml;&szlig;enberatung</span>
+            <span class="wf-footer__link">Versand &amp; Lieferung</span>
+            <span class="wf-footer__link">R&uuml;ckgabe &amp; Umtausch</span>
+            <span class="wf-footer__link">FAQ</span>
+          </div>
+        </div>
+        <div class="wf-footer__bottom">
+          <div class="wf-footer__legal">
+            &copy; 2026 TARA &bull; <a href="#">Impressum</a> &bull; <a href="#">Datenschutz</a> &bull; <a href="#">AGB</a> &bull; <a href="#">Widerrufsrecht</a>
+          </div>
+          <div class="wf-footer__certs">
+            <span class="wf-footer__cert"><span class="dot"></span> OEKO-TEX&reg;</span>
+            <span class="wf-footer__cert"><span class="dot"></span> GOTS</span>
+          </div>
+          <div class="wf-footer__payments">
+            <span>PayPal</span>
+            <span>Klarna</span>
+            <span>Visa</span>
+            <span>SEPA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================
+         COOKIE BANNER (GDPR)
+         ============================================ -->
+    <div class="wf-section" data-section="Overlay &mdash; Cookie Consent Banner &bull; Fixed bottom &bull; GDPR granular opt-in">
+      <div class="wf-cookie">
+        <p class="wf-cookie__text">Wir verwenden Cookies, um Ihnen die bestm&ouml;gliche Erfahrung zu bieten. Erfahren Sie mehr in unserer Datenschutzerkl&auml;rung.</p>
+        <div class="wf-cookie__btns">
+          <div class="wf-btn" style="padding:8px 16px; font-size:12px;">Akzeptieren</div>
+          <div class="wf-btn wf-btn--outline" style="padding:8px 16px; font-size:12px;">Nur notwendige</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.wf-page -->
+
+
+  <!-- ============================================
+       OVERLAY COMPONENTS
+       ============================================ -->
+  <div style="max-width:1440px; margin:32px auto 0;">
+    <div class="wf-overlays">
+
+      <!-- Filter Dropdown Panel -->
+      <div class="wf-overlay-preview" data-label="Filter Dropdown &mdash; Opens below filter bar">
+        <div class="wf-overlay-preview__body">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #E8E0D8; padding-bottom:10px; margin-bottom:12px;">
+            <span style="font-size:14px; font-weight:400; color:#2C2220;">Farbe</span>
+            <span style="font-size:12px; color:#C4A08A; cursor:pointer;">Zur&uuml;cksetzen</span>
+          </div>
+          <div class="wf-filter-preview__row">
+            <div class="wf-filter-preview__checkbox wf-filter-preview__checkbox--checked">&#10003;</div>
+            <div class="wf-filter-preview__swatch" style="background:#F5F0E8"></div>
+            <span>Creme</span>
+            <span style="opacity:0.4; margin-left:auto;">(6)</span>
+          </div>
+          <div class="wf-filter-preview__row">
+            <div class="wf-filter-preview__checkbox"></div>
+            <div class="wf-filter-preview__swatch" style="background:#C4A08A"></div>
+            <span>Taupe</span>
+            <span style="opacity:0.4; margin-left:auto;">(4)</span>
+          </div>
+          <div class="wf-filter-preview__row">
+            <div class="wf-filter-preview__checkbox"></div>
+            <div class="wf-filter-preview__swatch" style="background:#D5C8D9"></div>
+            <span>Lavendel</span>
+            <span style="opacity:0.4; margin-left:auto;">(3)</span>
+          </div>
+          <div class="wf-filter-preview__row">
+            <div class="wf-filter-preview__checkbox"></div>
+            <div class="wf-filter-preview__swatch" style="background:#9BAF93"></div>
+            <span>Salbei</span>
+            <span style="opacity:0.4; margin-left:auto;">(2)</span>
+          </div>
+          <div class="wf-filter-preview__row">
+            <div class="wf-filter-preview__checkbox"></div>
+            <div class="wf-filter-preview__swatch" style="background:#2C2220"></div>
+            <span>Espresso</span>
+            <span style="opacity:0.4; margin-left:auto;">(3)</span>
+          </div>
+          <div style="margin-top:12px; padding-top:12px; border-top:1px solid #E8E0D8;">
+            <div class="wf-btn" style="width:100%; text-align:center; font-size:12px; padding:8px 16px;">Anwenden</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Drawer -->
+      <div class="wf-overlay-preview" data-label="Cart Drawer &mdash; Slides in from right (420px)">
+        <div class="wf-overlay-preview__body">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #E8E0D8; padding-bottom:12px; margin-bottom:16px;">
+            <span class="wf-heading" style="font-size:20px;">Warenkorb</span>
+            <div class="wf-icon">&times;</div>
+          </div>
+          <div style="text-align:center; padding:40px 0; color:#3D3633; opacity:0.6;">
+            <p>Ihr Warenkorb ist leer</p>
+          </div>
+          <div style="border-top:1px solid #E8E0D8; padding-top:12px;">
+            <p style="font-size:11px; text-align:center; color:#3D3633; opacity:0.6; margin-bottom:8px;">Kostenloser Versand ab 75&euro;</p>
+            <div style="display:flex; justify-content:space-between; margin-bottom:12px;">
+              <span>Zwischensumme</span>
+              <span>&euro;0,00</span>
+            </div>
+            <div class="wf-btn wf-btn--dark" style="width:100%; text-align:center;">Zur Kasse</div>
+            <p style="font-size:11px; text-align:center; color:#3D3633; opacity:0.5; margin-top:8px;">inkl. MwSt. &bull; Versandkosten an der Kasse</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wishlist Drawer -->
+      <div class="wf-overlay-preview" data-label="Wishlist Drawer &mdash; Cookie-based, no login required">
+        <div class="wf-overlay-preview__body">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #E8E0D8; padding-bottom:12px; margin-bottom:16px;">
+            <span class="wf-heading" style="font-size:20px;">Wunschliste</span>
+            <div class="wf-icon">&times;</div>
+          </div>
+          <div style="text-align:center; padding:40px 0; color:#3D3633; opacity:0.6;">
+            <p>Ihre Wunschliste ist leer</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Bottom Nav -->
+      <div class="wf-overlay-preview" data-label="Mobile Bottom Tab Nav &mdash; Fixed bottom, < 768px only">
+        <div class="wf-overlay-preview__body">
+          <div class="wf-bottom-nav" style="border-radius:8px; overflow:hidden;">
+            <div class="wf-bottom-nav__item">
+              <div class="wf-bottom-nav__icon"></div>
+              <span>Start</span>
+            </div>
+            <div class="wf-bottom-nav__item wf-bottom-nav__item--active">
+              <div class="wf-bottom-nav__icon"></div>
+              <span>Shop</span>
+            </div>
+            <div class="wf-bottom-nav__item">
+              <div class="wf-bottom-nav__icon"></div>
+              <span>Wunschliste</span>
+            </div>
+            <div class="wf-bottom-nav__item">
+              <div class="wf-bottom-nav__icon"></div>
+              <span>Warenkorb</span>
+            </div>
+            <div class="wf-bottom-nav__item">
+              <div class="wf-bottom-nav__icon"></div>
+              <span>Konto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================
+       SPECIFICATION TABLES
+       ============================================ -->
+  <div style="max-width:1440px; margin:32px auto; padding:0 32px;">
+
+    <!-- Responsive Breakpoints -->
+    <div class="wf-section" data-section="Responsive Breakpoints &mdash; Collection Page" style="padding:32px 48px;">
+      <div>
+        <div class="wf-breakpoints__bar">
+          <div class="wf-breakpoints__segment" style="flex:2; background:#C4A08A;">Mobile &lt;768px</div>
+          <div class="wf-breakpoints__segment" style="flex:1.5; background:#C89B7B;">Tablet 768-1024px</div>
+          <div class="wf-breakpoints__segment" style="flex:2; background:#9BAF93;">Desktop 1025-1440px</div>
+          <div class="wf-breakpoints__segment" style="flex:1; background:#2C2220;">Wide &gt;1440px</div>
+        </div>
+
+        <table class="wf-spec-table" style="margin-top:24px;">
+          <thead>
+            <tr>
+              <th>Breakpoint</th>
+              <th>Product Grid</th>
+              <th>Filter Bar</th>
+              <th>Lookbook Grid</th>
+              <th>Key Changes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mobile (&lt;768px)</td>
+              <td>2 columns</td>
+              <td>Horizontal scroll pills</td>
+              <td>1 column, wide items full-width</td>
+              <td>Stacked Complete the Look cards, bottom tab nav</td>
+            </tr>
+            <tr>
+              <td>Tablet (768&ndash;1024px)</td>
+              <td>2&ndash;3 columns</td>
+              <td>Full pills row</td>
+              <td>2 columns</td>
+              <td>Behind the Scenes stacks vertically</td>
+            </tr>
+            <tr>
+              <td>Desktop (1025&ndash;1440px)</td>
+              <td>3 columns</td>
+              <td>Full bar, sticky</td>
+              <td>3 columns with spans</td>
+              <td>All sections at full layout</td>
+            </tr>
+            <tr>
+              <td>Wide (&gt;1440px)</td>
+              <td>3 columns (max 1440px)</td>
+              <td>Same as desktop</td>
+              <td>Same</td>
+              <td>Content centered, no over-stretching</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Filter & Sort Interactions -->
+    <div class="wf-section" data-section="Filter / Sort Interaction Behaviors" style="padding:32px 48px; margin-top:16px;">
+      <table class="wf-spec-table">
+        <thead>
+          <tr><th>Interaction</th><th>Behavior</th><th>Timing</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Filter pill click</td><td>Opens dropdown panel below bar</td><td>200ms ease</td></tr>
+          <tr><td>Active filter</td><td>Pill becomes filled (#C4A08A bg, white text) with &times; to remove</td><td>Instant</td></tr>
+          <tr><td>Sort dropdown</td><td>Options: Empfohlen, Neueste, Preis aufsteigend, Preis absteigend</td><td>Native select</td></tr>
+          <tr><td>Filter apply</td><td>Products re-render with fade transition</td><td>300ms ease</td></tr>
+          <tr><td>Filter bar sticky</td><td>Sticks at top: 72px (below header) on scroll</td><td>CSS position: sticky</td></tr>
+          <tr><td>Mobile filter</td><td>Full-screen slide-up panel with &ldquo;Anwenden&rdquo; button</td><td>300ms ease</td></tr>
+          <tr><td>Clear all filters</td><td>&ldquo;Alle Filter zur&uuml;cksetzen&rdquo; link appears when any filter active</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Product Card Interaction States -->
+    <div class="wf-section" data-section="Product Card Interaction States" style="padding:32px 48px; margin-top:16px; margin-bottom:64px;">
+      <table class="wf-spec-table">
+        <thead>
+          <tr><th>State</th><th>Visual Change</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Default</td><td>Primary image, wishlist heart hidden</td><td>&mdash;</td></tr>
+          <tr><td>Hover</td><td>Crossfade to second image (opacity transition)</td><td>400ms ease</td></tr>
+          <tr><td>Hover &mdash; Wishlist</td><td>Heart icon appears top-right, fills #C4A08A on click</td><td>200ms</td></tr>
+          <tr><td>Badge &ldquo;Neu&rdquo;</td><td>Lavender (#D5C8D9) pill, absolute top-left</td><td>&mdash;</td></tr>
+          <tr><td>Badge &ldquo;Bestseller&rdquo;</td><td>Same pill style</td><td>&mdash;</td></tr>
+          <tr><td>Color dots</td><td>Row of 14px circles below price</td><td>Hover: tooltip with color name (150ms delay)</td></tr>
+          <tr><td>Price display</td><td>&euro;XX,00 + &ldquo;inkl. MwSt.&rdquo; in small text</td><td>German market requirement</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>
