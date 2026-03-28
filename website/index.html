@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
   <link rel="stylesheet" href="css/responsive.css">
 
   <!-- Favicon placeholder -->
@@ -44,7 +45,7 @@
         </button>
         <nav class="header__nav" aria-label="Hauptnavigation">
           <div class="header__nav-item" style="position:relative;">
-            <a href="#" class="header__nav-link header__nav-link--active">Kollektionen</a>
+            <a href="collection.html" class="header__nav-link header__nav-link--active">Kollektionen</a>
             <!-- Mega Menu -->
             <div class="mega-menu">
               <div class="mega-menu__inner">
@@ -92,15 +93,24 @@
           <a href="#">EN</a>
         </div>
 
-        <button class="header__action-btn" aria-label="Suchen">
+        <button class="header__action-btn" id="searchToggle" aria-label="Suchen">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </button>
 
-        <button class="header__action-btn" aria-label="Konto">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </button>
+        <div class="account-menu">
+          <button class="header__action-btn" id="accountToggle" aria-label="Konto" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </button>
+          <div class="account-dropdown" id="accountDropdown" role="menu">
+            <a href="#" class="account-dropdown__item" role="menuitem">Anmelden</a>
+            <a href="#" class="account-dropdown__item" role="menuitem">Konto erstellen</a>
+            <div class="account-dropdown__divider"></div>
+            <a href="#" class="account-dropdown__item" role="menuitem">Bestellungen</a>
+            <a href="#" class="account-dropdown__item" role="menuitem">Wunschliste</a>
+          </div>
+        </div>
 
-        <button class="header__action-btn" aria-label="Wunschliste">
+        <button class="header__action-btn" id="wishlistToggle" aria-label="Wunschliste">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </button>
 
@@ -123,7 +133,7 @@
       </button>
     </div>
     <div class="mobile-menu__links">
-      <a href="#" class="mobile-menu__link">
+      <a href="collection.html" class="mobile-menu__link">
         Kollektionen
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -266,7 +276,7 @@
         <article class="product-card animate-on-scroll">
           <div class="product-card__image">
             <span class="product-card__badge">Bestseller</span>
-            <img src="https://images.unsplash.com/photo-1434389677669-e08b4cda3a7a?w=800&h=1000&fit=crop" alt="T-Shirt aus Bio-Baumwolle in Rosé" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=1000&fit=crop" alt="T-Shirt aus Bio-Baumwolle in Rosé" loading="lazy">
             <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=800&h=1000&fit=crop" alt="T-Shirt gestylt" class="product-card__hover-img" loading="lazy">
             <button class="product-card__wishlist" aria-label="Zur Wunschliste hinzufügen">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -529,6 +539,39 @@
   </footer>
 
   <!-- ==========================================
+       SEARCH OVERLAY
+       ========================================== -->
+  <div class="search-overlay" id="searchOverlay" role="search">
+    <div class="search-overlay__inner">
+      <form class="search-overlay__form" onsubmit="return false;">
+        <svg class="search-overlay__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" class="search-overlay__input" id="searchInput" placeholder="Suchen Sie nach Produkten…" autocomplete="off" aria-label="Suche">
+        <button type="button" class="search-overlay__close" id="searchClose" aria-label="Suche schließen">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       WISHLIST DRAWER
+       ========================================== -->
+  <div class="wishlist-drawer" id="wishlistDrawer">
+    <div class="cart-drawer__header">
+      <h3 class="cart-drawer__title">Wunschliste</h3>
+      <button class="cart-drawer__close" id="wishlistClose" aria-label="Wunschliste schließen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer__body">
+      <div class="cart-drawer__empty">
+        <p>Ihre Wunschliste ist leer</p>
+        <a href="collection.html" class="btn btn--primary">Kollektion entdecken</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
        CART DRAWER
        ========================================== -->
   <div class="cart-overlay" id="cartOverlay"></div>
@@ -605,6 +648,6 @@
   <!-- ==========================================
        JAVASCRIPT
        ========================================== -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>

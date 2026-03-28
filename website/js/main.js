@@ -49,6 +49,89 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       closeCart();
       closeMobileMenu();
+      closeSearch();
+      closeWishlist();
+      closeAccount();
+    }
+  });
+
+  // ---- Search Overlay ----
+  const searchToggle = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose = document.getElementById('searchClose');
+  const searchInput = document.getElementById('searchInput');
+
+  function openSearch(e) {
+    if (e) e.preventDefault();
+    searchOverlay?.classList.add('is-open');
+    setTimeout(() => searchInput?.focus(), 50);
+  }
+
+  function closeSearch() {
+    searchOverlay?.classList.remove('is-open');
+  }
+
+  searchToggle?.addEventListener('click', openSearch);
+  searchClose?.addEventListener('click', closeSearch);
+
+  // Close search when clicking outside
+  searchOverlay?.addEventListener('click', (e) => {
+    if (e.target === searchOverlay) closeSearch();
+  });
+
+  // ---- Account Dropdown ----
+  const accountToggle = document.getElementById('accountToggle');
+  const accountDropdown = document.getElementById('accountDropdown');
+
+  function openAccount() {
+    accountDropdown?.classList.add('is-open');
+    accountToggle?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeAccount() {
+    accountDropdown?.classList.remove('is-open');
+    accountToggle?.setAttribute('aria-expanded', 'false');
+  }
+
+  accountToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = accountDropdown?.classList.contains('is-open');
+    isOpen ? closeAccount() : openAccount();
+  });
+
+  // Close account dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!accountToggle?.contains(e.target) && !accountDropdown?.contains(e.target)) {
+      closeAccount();
+    }
+  });
+
+  // ---- Wishlist Drawer ----
+  const wishlistToggle = document.getElementById('wishlistToggle');
+  const wishlistDrawer = document.getElementById('wishlistDrawer');
+  const wishlistClose = document.getElementById('wishlistClose');
+
+  function openWishlist(e) {
+    if (e) e.preventDefault();
+    wishlistDrawer?.classList.add('is-open');
+    cartOverlay?.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeWishlist() {
+    wishlistDrawer?.classList.remove('is-open');
+    if (!cartDrawer?.classList.contains('is-open')) {
+      cartOverlay?.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  wishlistToggle?.addEventListener('click', openWishlist);
+  wishlistClose?.addEventListener('click', closeWishlist);
+
+  cartOverlay?.addEventListener('click', () => {
+    if (wishlistDrawer?.classList.contains('is-open')) {
+      closeWishlist();
     }
   });
 
