@@ -1,0 +1,89 @@
+/* ============================================
+   TARA Design System — CSS Custom Properties
+   French Soft Elegance | Cotton Clothing
+   ============================================ */
+
+:root {
+  /* ---- Primary Palette ---- */
+  --color-bg:             #FAF7F2;
+  --color-bg-secondary:   #F5E6E0;
+  --color-text:           #3D3633;
+  --color-heading:        #2C2220;
+
+  /* ---- Accent Colors ---- */
+  --color-accent:         #C4A08A;
+  --color-accent-hover:   #B08D78;
+  --color-lavender:       #D5C8D9;
+  --color-terracotta:     #C89B7B;
+  --color-sage:           #9BAF93;
+
+  /* ---- Functional Colors ---- */
+  --color-success:        #8A9A6D;
+  --color-error:          #D4736D;
+  --color-link:           #9C7E8C;
+  --color-border:         #E8E0D8;
+
+  /* ---- Footer ---- */
+  --color-footer-bg:      #2C2220;
+  --color-footer-text:    #FAF7F2;
+  --color-footer-muted:   #A89A92;
+
+  /* ---- Typography ---- */
+  --font-heading:         'Cormorant Garamond', 'Georgia', serif;
+  --font-body:            'Jost', 'Helvetica Neue', sans-serif;
+
+  /* ---- Font Sizes (Desktop) ---- */
+  --text-h1:              clamp(2.25rem, 4vw, 4rem);
+  --text-h2:              clamp(1.75rem, 3vw, 2.625rem);
+  --text-h3:              clamp(1.25rem, 2vw, 1.75rem);
+  --text-body:            1.0625rem;
+  --text-nav:             0.8125rem;
+  --text-button:          0.875rem;
+  --text-caption:         0.8125rem;
+  --text-small:           0.75rem;
+
+  /* ---- Font Weights ---- */
+  --weight-light:         300;
+  --weight-regular:       400;
+  --weight-medium:        500;
+
+  /* ---- Spacing Scale ---- */
+  --space-xs:             0.5rem;
+  --space-sm:             1rem;
+  --space-md:             1.5rem;
+  --space-lg:             2.5rem;
+  --space-xl:             4rem;
+  --space-2xl:            6rem;
+  --space-3xl:            8rem;
+
+  /* ---- Layout ---- */
+  --max-width:            1440px;
+  --content-width:        1200px;
+  --reading-width:        680px;
+  --header-height:        72px;
+  --announcement-height:  40px;
+
+  /* ---- Border Radius ---- */
+  --radius-sm:            4px;
+  --radius-md:            8px;
+  --radius-lg:            12px;
+  --radius-full:          9999px;
+
+  /* ---- Transitions ---- */
+  --transition-fast:      150ms ease;
+  --transition-base:      200ms ease;
+  --transition-slow:      400ms ease;
+
+  /* ---- Shadows ---- */
+  --shadow-sm:            0 1px 3px rgba(44, 34, 32, 0.06);
+  --shadow-md:            0 4px 12px rgba(44, 34, 32, 0.08);
+  --shadow-lg:            0 8px 24px rgba(44, 34, 32, 0.1);
+
+  /* ---- Z-Index Scale ---- */
+  --z-base:               1;
+  --z-dropdown:           100;
+  --z-sticky:             200;
+  --z-overlay:            300;
+  --z-modal:              400;
+  --z-toast:              500;
+}
