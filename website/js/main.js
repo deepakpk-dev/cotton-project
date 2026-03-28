@@ -202,6 +202,144 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => el.classList.add('is-visible'));
   }
 
+  // ---- Language Toggle (DE / EN) ----
+  const translations = {
+    // Announcement bar
+    'Kostenloser Versand ab 75\u20AC \u00A0\u2022\u00A0 Fr\u00FChling/Sommer Kollektion 2026 jetzt entdecken': 'Free shipping from \u20AC75 \u00A0\u2022\u00A0 Spring/Summer Collection 2026 — Discover now',
+    // Hero
+    'Fr\u00FChling / Sommer 2026': 'Spring / Summer 2026',
+    'Eine Hommage an das sanfte Licht der goldenen Stunde. Zeitlose Silhouetten in feinster Baumwolle.': 'An homage to the gentle light of golden hour. Timeless silhouettes in the finest cotton.',
+    'Kollektion entdecken': 'Discover the Collection',
+    // Collection Story
+    'Die Geschichte': 'The Story',
+    'Inspiriert von der Leichtigkeit des Seins': 'Inspired by the Lightness of Being',
+    'Mehr erfahren': 'Learn More',
+    // Product Grid
+    'Ausgew\u00E4hlte St\u00FCcke': 'Selected Pieces',
+    'Unsere Favoriten der aktuellen Kollektion': 'Our favourites from the current collection',
+    'Alle St\u00FCcke ansehen': 'View All Pieces',
+    // Values Strip
+    '100% Baumwolle': '100% Cotton',
+    'Premium Bio-Qualit\u00E4t': 'Premium Organic Quality',
+    'OEKO-TEX\u00AE zertifiziert': 'OEKO-TEX\u00AE Certified',
+    'Schadstoffgepr\u00FCft': 'Tested for Harmful Substances',
+    'Kostenloser Versand': 'Free Shipping',
+    'Ab 75\u20AC Bestellwert': 'On orders over \u20AC75',
+    '30 Tage R\u00FCckgabe': '30-Day Returns',
+    'Kostenlose Retoure': 'Free Returns',
+    // Second Editorial
+    'Unsere Materialien': 'Our Materials',
+    'Baumwolle, die man f\u00FChlen kann': 'Cotton You Can Feel',
+    'Mehr \u00FCber unsere Stoffe': 'More About Our Fabrics',
+    // Social Proof
+    'So tragen Sie unsere St\u00FCcke': 'How You Wear Our Pieces',
+    'Teilen Sie Ihren Look mit #TARAwomen': 'Share your look with #TARAwomen',
+    // Newsletter
+    '10% auf Ihre erste Bestellung': '10% Off Your First Order',
+    'Anmelden': 'Subscribe',
+    // Footer headings
+    'Shop': 'Shop',
+    '\u00DCber uns': 'About Us',
+    'Kundenservice': 'Customer Service',
+    'Neue Kollektion': 'New Collection',
+    'Kleider': 'Dresses',
+    'Blusen & Tops': 'Blouses & Tops',
+    'Hosen': 'Trousers',
+    'Strickwaren': 'Knitwear',
+    'Alle Produkte': 'All Products',
+    'Unsere Geschichte': 'Our Story',
+    'Materialien & Nachhaltigkeit': 'Materials & Sustainability',
+    'Journal': 'Journal',
+    'Karriere': 'Careers',
+    'Kontakt': 'Contact',
+    'Gr\u00F6\u00DFenberatung': 'Size Guide',
+    'Versand & Lieferung': 'Shipping & Delivery',
+    'R\u00FCckgabe & Umtausch': 'Returns & Exchange',
+    'FAQ': 'FAQ',
+    // Nav
+    'Kollektionen': 'Collections',
+    'Materialien': 'Materials',
+    'Lookbook': 'Lookbook',
+    '\u00DCber uns': 'About Us',
+    'Nachhaltigkeit': 'Sustainability',
+    // Mobile menu
+    'Deutsch': 'German',
+    'English': 'English',
+    // Bottom nav
+    'Start': 'Home',
+    'Wunschliste': 'Wishlist',
+    'Warenkorb': 'Cart',
+    'Konto': 'Account',
+  };
+
+  // Build reverse map
+  const reverseTranslations = {};
+  for (const [de, en] of Object.entries(translations)) {
+    reverseTranslations[en] = de;
+  }
+
+  let currentLang = 'de';
+
+  function setLanguage(lang) {
+    if (lang === currentLang) return;
+    currentLang = lang;
+
+    const map = lang === 'en' ? translations : reverseTranslations;
+
+    // Update all text nodes in the page body
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const trimmed = node.textContent.trim();
+      if (trimmed && map[trimmed]) {
+        node.textContent = node.textContent.replace(trimmed, map[trimmed]);
+      }
+    }
+
+    // Update placeholder attributes
+    const emailInputs = document.querySelectorAll('.newsletter__input');
+    emailInputs.forEach(input => {
+      input.placeholder = lang === 'en' ? 'Your email address' : 'Ihre E-Mail-Adresse';
+    });
+
+    const searchInputEl = document.getElementById('searchInput');
+    if (searchInputEl) {
+      searchInputEl.placeholder = lang === 'en' ? 'Search for products\u2026' : 'Suchen Sie nach Produkten\u2026';
+    }
+
+    // Update active state on lang toggles
+    document.querySelectorAll('.header__lang-toggle a').forEach(a => {
+      a.classList.toggle('active', a.textContent.trim() === lang.toUpperCase());
+    });
+    document.querySelectorAll('.mobile-menu__lang a').forEach(a => {
+      const isDE = a.textContent.trim() === 'Deutsch' || a.textContent.trim() === 'German';
+      const isEN = a.textContent.trim() === 'English';
+      a.classList.toggle('active', (lang === 'de' && isDE) || (lang === 'en' && isEN));
+    });
+
+    // Update html lang attribute
+    document.documentElement.lang = lang;
+  }
+
+  // Desktop lang toggle
+  document.querySelectorAll('.header__lang-toggle a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = a.textContent.trim().toLowerCase();
+      setLanguage(lang);
+    });
+  });
+
+  // Mobile lang toggle
+  document.querySelectorAll('.mobile-menu__lang a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const text = a.textContent.trim();
+      const lang = (text === 'Deutsch' || text === 'German') ? 'de' : 'en';
+      setLanguage(lang);
+    });
+  });
+
   // ---- Product Card Wishlist Toggle ----
   document.querySelectorAll('.product-card__wishlist').forEach(btn => {
     btn.addEventListener('click', (e) => {
