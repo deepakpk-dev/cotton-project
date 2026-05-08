@@ -1,0 +1,134 @@
+<!-- ==========================================
+     ANNOUNCEMENT BAR
+     ========================================== -->
+<div class="announcement-bar" id="announcementBar">
+  <span>Kostenloser Versand ab 75&euro; &nbsp;&bull;&nbsp; Frühling/Sommer Kollektion 2026 jetzt entdecken</span>
+  <button class="announcement-bar__close" aria-label="Schließen" onclick="this.parentElement.style.display='none'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+</div>
+
+<!-- ==========================================
+     HEADER / NAVIGATION
+     ========================================== -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <div class="header__left">
+      <button class="header__menu-toggle" id="menuToggle" aria-label="Menü öffnen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="header__nav" aria-label="Hauptnavigation">
+        <div class="header__nav-item">
+          <a href="/collection/" class="header__nav-link">Kollektionen</a>
+          <div class="mega-menu">
+            <div class="mega-menu__inner">
+              <div class="mega-menu__column">
+                <h4>Aktuell</h4>
+                <a href="/collection/">Frühling/Sommer 2026</a>
+                <a href="/collection/">Essentials</a>
+                <a href="/collection/">Neu eingetroffen</a>
+              </div>
+              <div class="mega-menu__column">
+                <h4>Kategorie</h4>
+                <a href="/collection/">Kleider</a>
+                <a href="/collection/">Blusen &amp; Tops</a>
+                <a href="/collection/">Hosen</a>
+                <a href="/collection/">Strickwaren</a>
+                <a href="/collection/">Alle ansehen</a>
+              </div>
+              <div class="mega-menu__column">
+                <h4>Highlights</h4>
+                <a href="/collection/">Bestseller</a>
+                <a href="/collection/">Capsule Garderobe</a>
+                <a href="/collection/">Leinen &amp; Baumwolle</a>
+              </div>
+              <div class="mega-menu__image">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=500&fit=crop&crop=faces" alt="TARA Kollektion" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="/materials/" class="header__nav-link">Materialien</a>
+        <a href="/collection/" class="header__nav-link">Lookbook</a>
+      </nav>
+    </div>
+
+    <div class="header__logo">
+      <a href="/">TARA</a>
+    </div>
+
+    <div class="header__actions">
+      <div class="header__lang-toggle">
+        <a href="#" class="active">DE</a>
+        <span style="opacity:0.3">|</span>
+        <a href="#">EN</a>
+      </div>
+
+      <button class="header__action-btn" id="searchToggle" aria-label="Suchen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+
+      <div class="account-menu">
+        <button class="header__action-btn" id="accountToggle" aria-label="Konto" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <div class="account-dropdown" id="accountDropdown" role="menu">
+          <a href="#" class="account-dropdown__item" role="menuitem">Anmelden</a>
+          <a href="#" class="account-dropdown__item" role="menuitem">Konto erstellen</a>
+          <div class="account-dropdown__divider"></div>
+          <a href="#" class="account-dropdown__item" role="menuitem">Bestellungen</a>
+          <a href="#" class="account-dropdown__item" role="menuitem">Wunschliste</a>
+        </div>
+      </div>
+
+      <button class="header__action-btn" id="wishlistToggle" aria-label="Wunschliste">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+
+      <button class="header__action-btn" id="cartToggle" aria-label="Warenkorb">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="header__cart-count">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ==========================================
+     MOBILE MENU
+     ========================================== -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu__header">
+    <span class="mobile-menu__brand">TARA</span>
+    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Menü schließen">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu__links">
+    <a href="/collection/" class="mobile-menu__link">
+      Kollektionen
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a href="/materials/" class="mobile-menu__link">
+      Materialien
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a href="/collection/" class="mobile-menu__link">
+      Lookbook
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a href="/brand-story/" class="mobile-menu__link">
+      Über uns
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a href="/materials/" class="mobile-menu__link">
+      Nachhaltigkeit
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
+  <div class="mobile-menu__footer">
+    <div class="mobile-menu__lang">
+      <a href="#" class="active">Deutsch</a>
+      <a href="#">English</a>
+    </div>
+  </div>
+</div>

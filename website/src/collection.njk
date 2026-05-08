@@ -1,97 +1,14 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lumière Douce — TARA Frühling/Sommer 2026 Kapselkollektion. Zeitlose Baumwollkleidung inspiriert vom sanften Licht der goldenen Stunde.">
-  <title>Lumière Douce — FS 2026 | TARA</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
-  <link rel="stylesheet" href="css/responsive.css">
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>T</text></svg>">
-</head>
-<body>
-
-  <!-- Announcement Bar -->
-  <div class="announcement-bar" id="announcementBar">
-    <span>Kostenloser Versand ab 75&euro; &nbsp;&bull;&nbsp; Frühling/Sommer Kollektion 2026</span>
-    <button class="announcement-bar__close" aria-label="Schließen" onclick="this.parentElement.style.display='none'">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-  </div>
-
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="header__inner">
-      <div class="header__left">
-        <button class="header__menu-toggle" id="menuToggle" aria-label="Menü öffnen">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <nav class="header__nav" aria-label="Hauptnavigation">
-          <a href="collection.html" class="header__nav-link header__nav-link--active">Kollektionen</a>
-          <a href="#" class="header__nav-link">Materialien</a>
-          <a href="collection.html" class="header__nav-link">Lookbook</a>
-        </nav>
-      </div>
-      <div class="header__logo"><a href="index.html">TARA</a></div>
-      <div class="header__actions">
-        <div class="header__lang-toggle">
-          <a href="#" class="active">DE</a><span style="opacity:0.3">|</span><a href="#">EN</a>
-        </div>
-        <button class="header__action-btn" id="searchToggle" aria-label="Suchen">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-        <div class="account-menu">
-          <button class="header__action-btn" id="accountToggle" aria-label="Konto" aria-expanded="false">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </button>
-          <div class="account-dropdown" id="accountDropdown" role="menu">
-            <a href="#" class="account-dropdown__item" role="menuitem">Anmelden</a>
-            <a href="#" class="account-dropdown__item" role="menuitem">Konto erstellen</a>
-            <div class="account-dropdown__divider"></div>
-            <a href="#" class="account-dropdown__item" role="menuitem">Bestellungen</a>
-            <a href="#" class="account-dropdown__item" role="menuitem">Wunschliste</a>
-          </div>
-        </div>
-        <button class="header__action-btn" id="wishlistToggle" aria-label="Wunschliste">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </button>
-        <button class="header__action-btn" id="cartToggle" aria-label="Warenkorb">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          <span class="header__cart-count">0</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu__header">
-      <span class="mobile-menu__brand">TARA</span>
-      <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Menü schließen">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="mobile-menu__links">
-      <a href="collection.html" class="mobile-menu__link">Kollektionen</a>
-      <a href="#" class="mobile-menu__link">Materialien</a>
-      <a href="collection.html" class="mobile-menu__link">Lookbook</a>
-      <a href="#" class="mobile-menu__link">Über uns</a>
-    </div>
-  </div>
+---
+layout: base.njk
+title: "Lumière Douce — FS 2026 | TARA"
+description: "Lumière Douce — TARA Frühling/Sommer 2026 Kapselkollektion. Zeitlose Baumwollkleidung inspiriert vom sanften Licht der goldenen Stunde."
+bodyClass: "page-collection"
+---
 
   <!-- Breadcrumbs -->
   <div class="container">
     <nav class="breadcrumbs" aria-label="Brotkrümelnavigation">
-      <a href="index.html">Start</a><span>/</span><a href="#">Kollektionen</a><span>/</span>Lumière Douce FS 2026
+      <a href="/">Start</a><span>/</span><a href="#">Kollektionen</a><span>/</span>Lumière Douce FS 2026
     </nav>
   </div>
 
@@ -194,7 +111,7 @@
 
         <!-- Product 1 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <span class="product-card__badge">Neu</span>
               <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=800&h=1000&fit=crop" alt="Wickelkleid Lumière" loading="lazy">
@@ -217,7 +134,7 @@
 
         <!-- Product 2 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=800&h=1000&fit=crop" alt="Oversized Bluse Aurore" loading="lazy">
               <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=800&h=1000&fit=crop" alt="Bluse gestylt" class="product-card__hover-img" loading="lazy">
@@ -238,7 +155,7 @@
 
         <!-- Product 3 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1000&fit=crop" alt="Weite Hose Soleil" loading="lazy">
               <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1000&fit=crop&crop=bottom" alt="Hose gestylt" class="product-card__hover-img" loading="lazy">
@@ -259,7 +176,7 @@
 
         <!-- Product 4 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <span class="product-card__badge">Bestseller</span>
               <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=1000&fit=crop" alt="Essential Tee Douceur" loading="lazy">
@@ -283,7 +200,7 @@
 
         <!-- Product 5 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&h=1000&fit=crop" alt="Strick-Cardigan Tendresse" loading="lazy">
               <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=1000&fit=crop" alt="Cardigan gestylt" class="product-card__hover-img" loading="lazy">
@@ -304,7 +221,7 @@
 
         <!-- Product 6 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1000&fit=crop&crop=top" alt="Midi-Rock Jardin" loading="lazy">
               <img src="https://images.unsplash.com/photo-1550614000-4895a10e1bfd?w=800&h=1000&fit=crop" alt="Rock gestylt" class="product-card__hover-img" loading="lazy">
@@ -325,7 +242,7 @@
 
         <!-- Product 7 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <span class="product-card__badge">Neu</span>
               <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop" alt="Leinen-Baumwoll Blazer Clarté" loading="lazy">
@@ -347,7 +264,7 @@
 
         <!-- Product 8 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=1000&fit=crop" alt="Baumwoll-Top Matin" loading="lazy">
               <img src="https://images.unsplash.com/photo-1550614000-4895a10e1bfd?w=800&h=1000&fit=crop" alt="Top gestylt" class="product-card__hover-img" loading="lazy">
@@ -369,7 +286,7 @@
 
         <!-- Product 9 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&h=1000&fit=crop" alt="Baumwoll-Maxikleid Étoile" loading="lazy">
               <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1000&fit=crop" alt="Maxikleid gestylt" class="product-card__hover-img" loading="lazy">
@@ -390,7 +307,7 @@
 
         <!-- Product 10 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1550614000-4895a10e1bfd?w=800&h=1000&fit=crop" alt="Baumwoll-Culotte Brise" loading="lazy">
               <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=800&h=1000&fit=crop" alt="Culotte gestylt" class="product-card__hover-img" loading="lazy">
@@ -411,7 +328,7 @@
 
         <!-- Product 11 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <span class="product-card__badge">Neu</span>
               <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&h=1000&fit=crop" alt="Leinenhemd Horizon" loading="lazy">
@@ -433,7 +350,7 @@
 
         <!-- Product 12 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=1000&fit=crop" alt="Jersey-Kleid Murmure" loading="lazy">
               <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1000&fit=crop" alt="Kleid gestylt" class="product-card__hover-img" loading="lazy">
@@ -454,7 +371,7 @@
 
         <!-- Product 13 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1000&fit=crop&crop=center" alt="Baumwoll-Shorts Rivière" loading="lazy">
               <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=800&h=1000&fit=crop" alt="Shorts gestylt" class="product-card__hover-img" loading="lazy">
@@ -475,7 +392,7 @@
 
         <!-- Product 14 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <span class="product-card__badge">Bestseller</span>
               <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=1000&fit=crop&crop=top" alt="Wickeltop Caresse" loading="lazy">
@@ -498,7 +415,7 @@
 
         <!-- Product 15 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&h=1000&fit=crop&crop=top" alt="A-Linien-Rock Pétale" loading="lazy">
               <img src="https://images.unsplash.com/photo-1550614000-4895a10e1bfd?w=800&h=1000&fit=crop" alt="Rock gestylt" class="product-card__hover-img" loading="lazy">
@@ -519,7 +436,7 @@
 
         <!-- Product 16 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=1000&fit=crop&crop=center" alt="Baumwoll-Strickpullover Nuage" loading="lazy">
               <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=800&h=1000&fit=crop" alt="Pullover gestylt" class="product-card__hover-img" loading="lazy">
@@ -540,7 +457,7 @@
 
         <!-- Product 17 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <span class="product-card__badge">Neu</span>
               <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=800&h=1000&fit=crop&crop=top" alt="Hemdblusenkleid Aube" loading="lazy">
@@ -562,7 +479,7 @@
 
         <!-- Product 18 -->
         <article class="product-card animate-on-scroll">
-          <a href="product.html" style="text-decoration:none; color:inherit;">
+          <a href="/product/" style="text-decoration:none; color:inherit;">
             <div class="product-card__image">
               <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&h=1000&fit=crop&crop=center" alt="Palazzo-Hose Velours" loading="lazy">
               <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&h=1000&fit=crop" alt="Hose gestylt" class="product-card__hover-img" loading="lazy">
@@ -609,9 +526,9 @@
             <div class="complete-look__info">
               <h3 class="complete-look__name">Entspannter Sonntag</h3>
               <ul class="complete-look__items">
-                <li><a href="product.html">Oversized Bluse Aurore</a><span>&euro;68</span></li>
-                <li><a href="product.html">Culotte Brise</a><span>&euro;76</span></li>
-                <li><a href="product.html">Strick-Cardigan Tendresse</a><span>&euro;78</span></li>
+                <li><a href="/product/">Oversized Bluse Aurore</a><span>&euro;68</span></li>
+                <li><a href="/product/">Culotte Brise</a><span>&euro;76</span></li>
+                <li><a href="/product/">Strick-Cardigan Tendresse</a><span>&euro;78</span></li>
               </ul>
               <p class="complete-look__total">Gesamter Look: &euro;222</p>
             </div>
@@ -625,8 +542,8 @@
             <div class="complete-look__info">
               <h3 class="complete-look__name">Sommerabend</h3>
               <ul class="complete-look__items">
-                <li><a href="product.html">Wickelkleid Lumière</a><span>&euro;98</span></li>
-                <li><a href="product.html">Baumwoll-Blazer Clarté</a><span>&euro;118</span></li>
+                <li><a href="/product/">Wickelkleid Lumière</a><span>&euro;98</span></li>
+                <li><a href="/product/">Baumwoll-Blazer Clarté</a><span>&euro;118</span></li>
               </ul>
               <p class="complete-look__total">Gesamter Look: &euro;216</p>
             </div>
@@ -640,9 +557,9 @@
             <div class="complete-look__info">
               <h3 class="complete-look__name">Büro-Eleganz</h3>
               <ul class="complete-look__items">
-                <li><a href="product.html">Wickeltop Caresse</a><span>&euro;45</span></li>
-                <li><a href="product.html">Weite Hose Soleil</a><span>&euro;85</span></li>
-                <li><a href="product.html">Baumwoll-Blazer Clarté</a><span>&euro;118</span></li>
+                <li><a href="/product/">Wickeltop Caresse</a><span>&euro;45</span></li>
+                <li><a href="/product/">Weite Hose Soleil</a><span>&euro;85</span></li>
+                <li><a href="/product/">Baumwoll-Blazer Clarté</a><span>&euro;118</span></li>
               </ul>
               <p class="complete-look__total">Gesamter Look: &euro;248</p>
             </div>
@@ -687,136 +604,3 @@
       </p>
     </div>
   </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <p class="footer__brand-name">TARA</p>
-          <p class="footer__brand-text">Exklusive Baumwollkleidung in kuratierten Kapsulkollektionen. Zeitloses Design, gefertigt für Frauen, die Qualität und mühelose Eleganz schätzen.</p>
-        </div>
-        <div>
-          <h4 class="footer__heading">Shop</h4>
-          <div class="footer__links">
-            <a href="#">Neue Kollektion</a><a href="#">Kleider</a><a href="#">Blusen & Tops</a><a href="#">Hosen</a><a href="#">Alle Produkte</a>
-          </div>
-        </div>
-        <div>
-          <h4 class="footer__heading">Über uns</h4>
-          <div class="footer__links">
-            <a href="#">Unsere Geschichte</a><a href="#">Materialien</a><a href="#">Journal</a>
-          </div>
-        </div>
-        <div>
-          <h4 class="footer__heading">Kundenservice</h4>
-          <div class="footer__links">
-            <a href="#">Kontakt</a><a href="#">Größenberatung</a><a href="#">Versand & Lieferung</a><a href="#">Rückgabe</a><a href="#">FAQ</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <div class="footer__copyright">
-          &copy; 2026 TARA &bull; <a href="#" style="color: var(--color-footer-muted);">Impressum</a> &bull; <a href="#" style="color: var(--color-footer-muted);">Datenschutz</a> &bull; <a href="#" style="color: var(--color-footer-muted);">AGB</a> &bull; <a href="#" style="color: var(--color-footer-muted);">Widerrufsrecht</a>
-        </div>
-        <div class="footer__certifications">
-          <span class="footer__cert-badge">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            OEKO-TEX&reg;
-          </span>
-          <span class="footer__cert-badge">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-            GOTS
-          </span>
-        </div>
-        <div class="footer__payments">
-          <span class="footer__payment-icon">PayPal</span>
-          <span class="footer__payment-icon">Klarna</span>
-          <span class="footer__payment-icon">Visa</span>
-          <span class="footer__payment-icon">SEPA</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Search Overlay -->
-  <div class="search-overlay" id="searchOverlay" role="search">
-    <div class="search-overlay__inner">
-      <form class="search-overlay__form" onsubmit="return false;">
-        <svg class="search-overlay__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="search" class="search-overlay__input" id="searchInput" placeholder="Suchen Sie nach Produkten…" autocomplete="off" aria-label="Suche">
-        <button type="button" class="search-overlay__close" id="searchClose" aria-label="Suche schließen">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Wishlist Drawer -->
-  <div class="wishlist-drawer" id="wishlistDrawer">
-    <div class="cart-drawer__header">
-      <h3 class="cart-drawer__title">Wunschliste</h3>
-      <button class="cart-drawer__close" id="wishlistClose" aria-label="Wunschliste schließen">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="cart-drawer__body">
-      <div class="cart-drawer__empty">
-        <p>Ihre Wunschliste ist leer</p>
-        <a href="collection.html" class="btn btn--primary">Kollektion entdecken</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Cart Drawer -->
-  <div class="cart-overlay" id="cartOverlay"></div>
-  <div class="cart-drawer" id="cartDrawer">
-    <div class="cart-drawer__header">
-      <h3 class="cart-drawer__title">Warenkorb</h3>
-      <button class="cart-drawer__close" id="cartClose" aria-label="Warenkorb schließen">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="cart-drawer__body">
-      <div class="cart-drawer__empty">
-        <p>Ihr Warenkorb ist leer</p>
-        <a href="collection.html" class="btn btn--primary">Weiter einkaufen</a>
-      </div>
-    </div>
-    <div class="cart-drawer__footer">
-      <div class="cart-drawer__shipping-note">Kostenloser Versand ab 75&euro;</div>
-      <div class="cart-drawer__total"><span>Zwischensumme</span><span>&euro;0,00</span></div>
-      <button class="btn btn--dark btn--full">Zur Kasse</button>
-    </div>
-  </div>
-
-  <!-- Bottom Nav (Mobile) -->
-  <nav class="bottom-nav" aria-label="Mobile Navigation">
-    <a href="index.html" class="bottom-nav__item">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span class="bottom-nav__label">Start</span>
-    </a>
-    <a href="collection.html" class="bottom-nav__item bottom-nav__item--active">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
-      <span class="bottom-nav__label">Shop</span>
-    </a>
-    <a href="#" class="bottom-nav__item">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      <span class="bottom-nav__label">Wunschliste</span>
-    </a>
-    <a href="#" class="bottom-nav__item" id="bottomNavCart">
-      <span class="bottom-nav__cart-badge">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        <span class="bottom-nav__cart-count">0</span>
-      </span>
-      <span class="bottom-nav__label">Warenkorb</span>
-    </a>
-    <a href="#" class="bottom-nav__item">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      <span class="bottom-nav__label">Konto</span>
-    </a>
-  </nav>
-
-  <script src="js/main.js?v=2"></script>
-</body>
-</html>
