@@ -934,49 +934,6 @@
 }
 
 /* ================================================
-   COOKIE CONSENT (GDPR)
-   ================================================ */
-.cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-  box-shadow: 0 -4px 20px rgba(44, 34, 32, 0.1);
-  padding: var(--space-md) var(--space-lg);
-  z-index: var(--z-toast);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
-  transform: translateY(100%);
-  transition: transform var(--transition-slow);
-}
-
-.cookie-banner.is-visible {
-  transform: translateY(0);
-}
-
-.cookie-banner__text {
-  font-size: var(--text-caption);
-  color: var(--color-text);
-  max-width: 600px;
-  line-height: 1.6;
-}
-
-.cookie-banner__text a {
-  color: var(--color-accent);
-  text-decoration: underline;
-}
-
-.cookie-banner__actions {
-  display: flex;
-  gap: var(--space-xs);
-  flex-shrink: 0;
-}
-
-/* ================================================
    SEARCH OVERLAY
    ================================================ */
 .search-overlay {
