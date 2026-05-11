@@ -10,7 +10,7 @@ bodyClass: "page-home"
        ========================================== -->
   <section class="hero">
     <div class="hero__image">
-      <img src="/images/tara/hero-lumiere-douce.png" alt="TARA Frühling/Sommer Kollektion Lumière Douce in warmem Tageslicht" fetchpriority="high">
+      <img src="/images/tara/hero-lumiere-douce.jpg" alt="TARA Frühling/Sommer Kollektion Lumière Douce in warmem Tageslicht" fetchpriority="high">
     </div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
@@ -39,7 +39,7 @@ bodyClass: "page-home"
           <a href="/collection/" class="btn btn--outline">Mehr erfahren</a>
         </div>
         <div class="collection-story__image">
-          <img src="/images/tara/editorial-cotton-detail.png" alt="Detailaufnahme von weicher TARA Bio-Baumwolle" loading="lazy">
+          <img src="/images/tara/editorial-cotton-detail.jpg" alt="Detailaufnahme von weicher TARA Bio-Baumwolle" loading="lazy">
         </div>
       </div>
     </div>
@@ -71,8 +71,8 @@ bodyClass: "page-home"
                   <p class="product-card__price">&euro;{{ product.price }},00 <small class="product-card__tax">{{ site.commerce.taxNotice }}</small></p>
                   <p class="product-card__shipping">{{ site.commerce.shippingNotice }}</p>
                   <div class="product-card__colors" aria-label="Verfügbare Farben">
-                    {% for color in product.colors %}
-                      <span class="product-card__color-dot product-card__color-dot--{{ color }}" title="{{ color }}"></span>
+                    {% for color in product.colorOptions %}
+                      <span class="product-card__color-dot product-card__color-dot--{{ color.token }}" title="{{ color.label }}" aria-label="{{ color.label }}"></span>
                     {% endfor %}
                   </div>
                 </div>
@@ -144,7 +144,7 @@ bodyClass: "page-home"
     <div class="container">
       <div class="collection-story collection-story--reverse animate-on-scroll">
         <div class="collection-story__image">
-          <img src="/images/tara/editorial-atelier.png" alt="TARA Atelier mit Baumwollstoffen und Schnittmustern" loading="lazy">
+          <img src="/images/tara/editorial-atelier.jpg" alt="TARA Atelier mit Baumwollstoffen und Schnittmustern" loading="lazy">
         </div>
         <div class="collection-story__text">
           <p class="collection-story__label">Unsere Materialien</p>
@@ -173,19 +173,19 @@ bodyClass: "page-home"
     </div>
     <div class="social-proof__grid">
       <div class="social-proof__item">
-        <img src="/images/tara/social-proof-01.png" alt="TARA Kundin im Wickelkleid Lumière" loading="lazy">
+        <img src="/images/tara/social-proof-01.jpg" alt="TARA Kundin im Wickelkleid Lumière" loading="lazy">
       </div>
       <div class="social-proof__item">
-        <img src="/images/tara/social-proof-02.png" alt="TARA Kundin in Bluse und weiter Baumwollhose" loading="lazy">
+        <img src="/images/tara/social-proof-02.jpg" alt="TARA Kundin in Bluse und weiter Baumwollhose" loading="lazy">
       </div>
       <div class="social-proof__item">
-        <img src="/images/tara/social-proof-03.png" alt="TARA Kundin in entspannter Capsule-Kombination" loading="lazy">
+        <img src="/images/tara/social-proof-03.jpg" alt="TARA Kundin in entspannter Capsule-Kombination" loading="lazy">
       </div>
       <div class="social-proof__item">
-        <img src="/images/tara/editorial-wrap-dress.png" alt="TARA Wickelkleid in natürlichem Licht" loading="lazy">
+        <img src="/images/tara/editorial-wrap-dress.jpg" alt="TARA Wickelkleid in natürlichem Licht" loading="lazy">
       </div>
       <div class="social-proof__item">
-        <img src="/images/tara/editorial-blouse-trouser.png" alt="TARA Bluse und Hose als Capsule Outfit" loading="lazy">
+        <img src="/images/tara/editorial-blouse-trouser.jpg" alt="TARA Bluse und Hose als Capsule Outfit" loading="lazy">
       </div>
     </div>
   </section>

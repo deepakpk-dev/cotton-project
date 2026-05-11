@@ -17,7 +17,7 @@ bodyClass: "page-collection"
        ========================================== -->
   <section class="collection-hero">
     <div class="collection-hero__image">
-      <img src="/images/tara/hero-lumiere-douce.png" alt="Lumière Douce Kollektion in warmem Sonnenlicht" fetchpriority="high">
+      <img src="/images/tara/hero-lumiere-douce.jpg" alt="Lumière Douce Kollektion in warmem Sonnenlicht" fetchpriority="high">
     </div>
     <div class="collection-hero__overlay"></div>
     <div class="collection-hero__content">
@@ -46,19 +46,19 @@ bodyClass: "page-collection"
     <div class="container">
       <div class="lookbook-grid">
         <div class="lookbook-grid__item lookbook-grid__item--wide">
-          <img src="/images/tara/editorial-wrap-dress.png" alt="Lookbook Wickelkleid in natürlicher Umgebung" loading="lazy">
+          <img src="/images/tara/editorial-wrap-dress.jpg" alt="Lookbook Wickelkleid in natürlicher Umgebung" loading="lazy">
         </div>
         <div class="lookbook-grid__item">
-          <img src="/images/tara/editorial-cotton-detail.png" alt="Lookbook Detailaufnahme cremefarbener Baumwolle" loading="lazy">
+          <img src="/images/tara/editorial-cotton-detail.jpg" alt="Lookbook Detailaufnahme cremefarbener Baumwolle" loading="lazy">
         </div>
         <div class="lookbook-grid__item">
-          <img src="/images/tara/editorial-blouse-trouser.png" alt="Lookbook Bluse und Hose als Baumwollkombination" loading="lazy">
+          <img src="/images/tara/editorial-blouse-trouser.jpg" alt="Lookbook Bluse und Hose als Baumwollkombination" loading="lazy">
         </div>
         <div class="lookbook-grid__item">
-          <img src="/images/tara/editorial-atelier.png" alt="Lookbook Atelier mit Baumwollstoffen" loading="lazy">
+          <img src="/images/tara/editorial-atelier.jpg" alt="Lookbook Atelier mit Baumwollstoffen" loading="lazy">
         </div>
         <div class="lookbook-grid__item lookbook-grid__item--wide">
-          <img src="/images/tara/editorial-capsule-rail.png" alt="Lookbook Capsule-Kollektion auf Kleiderstange" loading="lazy">
+          <img src="/images/tara/editorial-capsule-rail.jpg" alt="Lookbook Capsule-Kollektion auf Kleiderstange" loading="lazy">
         </div>
       </div>
     </div>
@@ -123,8 +123,8 @@ bodyClass: "page-collection"
                 <p class="product-card__price">&euro;{{ product.price }},00 <small class="product-card__tax">{{ site.commerce.taxNotice }}</small></p>
                 <p class="product-card__shipping">{{ site.commerce.shippingNotice }}</p>
                 <div class="product-card__colors" aria-label="Verfügbare Farben">
-                  {% for color in product.colors %}
-                    <span class="product-card__color-dot product-card__color-dot--{{ color }}" title="{{ color }}"></span>
+                  {% for color in product.colorOptions %}
+                    <span class="product-card__color-dot product-card__color-dot--{{ color.token }}" title="{{ color.label }}" aria-label="{{ color.label }}"></span>
                   {% endfor %}
                 </div>
               </div>
@@ -155,7 +155,7 @@ bodyClass: "page-collection"
         <div class="complete-look__grid">
           <div class="complete-look__card">
             <div class="complete-look__image">
-              <img src="/images/tara/editorial-blouse-trouser.png" alt="Look Entspannter Sonntag mit Bluse, Culotte und Cardigan" loading="lazy">
+              <img src="/images/tara/editorial-blouse-trouser.jpg" alt="Look Entspannter Sonntag mit Bluse, Culotte und Cardigan" loading="lazy">
             </div>
             <div class="complete-look__info">
               <h3 class="complete-look__name">Entspannter Sonntag</h3>
@@ -170,7 +170,7 @@ bodyClass: "page-collection"
 
           <div class="complete-look__card">
             <div class="complete-look__image">
-              <img src="/images/tara/editorial-wrap-dress.png" alt="Look Sommerabend mit Wickelkleid und Baumwoll-Blazer" loading="lazy">
+              <img src="/images/tara/editorial-wrap-dress.jpg" alt="Look Sommerabend mit Wickelkleid und Baumwoll-Blazer" loading="lazy">
             </div>
             <div class="complete-look__info">
               <h3 class="complete-look__name">Sommerabend</h3>
@@ -184,7 +184,7 @@ bodyClass: "page-collection"
 
           <div class="complete-look__card">
             <div class="complete-look__image">
-              <img src="/images/tara/editorial-capsule-rail.png" alt="Look Büro-Eleganz mit Wickeltop, weiter Hose und Blazer" loading="lazy">
+              <img src="/images/tara/editorial-capsule-rail.jpg" alt="Look Büro-Eleganz mit Wickeltop, weiter Hose und Blazer" loading="lazy">
             </div>
             <div class="complete-look__info">
               <h3 class="complete-look__name">Büro-Eleganz</h3>
@@ -216,7 +216,7 @@ bodyClass: "page-collection"
           <a href="/brand-story/" class="btn btn--outline">Unsere Werkstatt entdecken</a>
         </div>
         <div class="collection-story__image">
-          <img src="/images/tara/editorial-atelier.png" alt="TARA Atelier mit natürlichen Baumwollmaterialien" loading="lazy">
+          <img src="/images/tara/editorial-atelier.jpg" alt="TARA Atelier mit natürlichen Baumwollmaterialien" loading="lazy">
         </div>
       </div>
     </div>
