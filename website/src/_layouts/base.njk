@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{ description }}">
+  <meta property="og:site_name" content="{{ site.brand.name }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/tara/hero-lumiere-douce.png">
   <title>{{ title }}</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +55,7 @@
     </span>
     <span class="bottom-nav__label">Warenkorb</span>
   </a>
-  <a href="#" class="bottom-nav__item">
+  <a href="#" class="bottom-nav__item" aria-disabled="true" data-static-feature="account">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     <span class="bottom-nav__label">Konto</span>
   </a>

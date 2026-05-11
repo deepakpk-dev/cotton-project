@@ -795,6 +795,21 @@
   color: var(--color-footer-muted);
 }
 
+.footer__legal-links a {
+  color: var(--color-footer-muted);
+}
+
+.footer__legal-links a:hover {
+  color: var(--color-footer-text);
+}
+
+.footer__trust-line {
+  max-width: none;
+  margin-bottom: var(--space-md);
+  font-size: var(--text-small);
+  color: var(--color-footer-muted);
+}
+
 .footer__certifications {
   display: flex;
   gap: var(--space-sm);

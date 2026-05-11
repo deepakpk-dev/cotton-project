@@ -26,30 +26,32 @@
           <a href="/brand-story/">Unsere Geschichte</a>
           <a href="/materials/">Materialien &amp; Nachhaltigkeit</a>
           <a href="/collection/">Journal</a>
-          <a href="#">Karriere</a>
         </div>
       </div>
 
       <div>
         <h4 class="footer__heading">Kundenservice</h4>
         <div class="footer__links">
-          <a href="#">Kontakt</a>
+          <a href="mailto:{{ site.company.email }}">{{ site.company.email }}</a>
+          <a href="tel:{{ site.company.phone | replace(' ', '') }}">{{ site.company.phone }}</a>
           <a href="/size-guide/">Größenberatung</a>
-          <a href="#">Versand &amp; Lieferung</a>
           <a href="/legal/widerruf/">Rückgabe &amp; Umtausch</a>
-          <a href="#">FAQ</a>
         </div>
       </div>
     </div>
 
+    <p class="footer__trust-line">
+      {{ site.commerce.shippingCarrier }} Versand &middot; {{ site.commerce.returnWindow }} &middot; {{ site.payments | join(" · ") }}
+    </p>
+
     <div class="footer__bottom">
-      <div class="footer__copyright">
+      <div class="footer__copyright footer__legal-links">
         &copy; 2026 TARA. Alle Rechte vorbehalten.
-        &nbsp;&bull;&nbsp; <a href="/legal/impressum/" style="color: var(--color-footer-muted);">Impressum</a>
-        &nbsp;&bull;&nbsp; <a href="/legal/datenschutz/" style="color: var(--color-footer-muted);">Datenschutz</a>
-        &nbsp;&bull;&nbsp; <a href="/legal/agb/" style="color: var(--color-footer-muted);">AGB</a>
-        &nbsp;&bull;&nbsp; <a href="/legal/widerruf/" style="color: var(--color-footer-muted);">Widerrufsrecht</a>
-        &nbsp;&bull;&nbsp; <a href="#" id="cookieSettingsLink" style="color: var(--color-footer-muted);">Cookie-Einstellungen</a>
+        &nbsp;&bull;&nbsp; <a href="/legal/impressum/">Impressum</a>
+        &nbsp;&bull;&nbsp; <a href="/legal/datenschutz/">Datenschutz</a>
+        &nbsp;&bull;&nbsp; <a href="/legal/agb/">AGB</a>
+        &nbsp;&bull;&nbsp; <a href="/legal/widerruf/">Widerrufsrecht</a>
+        &nbsp;&bull;&nbsp; <a href="#" id="cookieSettingsLink">Cookie-Einstellungen</a>
       </div>
       <div class="footer__certifications">
         <span class="footer__cert-badge">
