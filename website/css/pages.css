@@ -483,6 +483,23 @@
   line-height: 1.9;
 }
 
+.collection-intro__lead {
+  margin-top: var(--space-md);
+}
+
+.section--lookbook {
+  padding-top: 0;
+}
+
+.section--product-highlights {
+  background-color: var(--color-bg);
+}
+
+.product-grid__footer {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
 /* Lookbook Grid */
 .lookbook-grid {
   display: grid;
@@ -581,12 +598,24 @@
   opacity: 0.6;
 }
 
+.filter-bar__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 /* ================================================
    COMPLETE THE LOOK
    ================================================ */
 .complete-look__header {
   text-align: center;
   margin-bottom: var(--space-xl);
+}
+
+.complete-look__intro {
+  max-width: var(--reading-width);
+  margin: var(--space-sm) auto 0;
+  color: var(--color-text);
 }
 
 .complete-look__grid {

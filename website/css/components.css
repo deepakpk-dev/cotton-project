@@ -428,6 +428,12 @@
   cursor: pointer;
 }
 
+.product-card__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 .product-card__image {
   position: relative;
   overflow: hidden;
@@ -522,6 +528,19 @@
   color: var(--color-text);
 }
 
+.product-card__tax {
+  font-size: var(--text-small);
+  opacity: 0.55;
+}
+
+.product-card__shipping {
+  max-width: none;
+  margin: 0.125rem 0 0;
+  font-size: var(--text-small);
+  color: var(--color-text);
+  opacity: 0.65;
+}
+
 .product-card__price span.original {
   text-decoration: line-through;
   opacity: 0.5;
@@ -544,6 +563,38 @@
 
 .product-card__color-dot:hover {
   border-color: var(--color-heading);
+}
+
+.product-card__color-dot--creme {
+  background-color: var(--color-bg);
+}
+
+.product-card__color-dot--rose {
+  background-color: var(--color-bg-secondary);
+}
+
+.product-card__color-dot--sage {
+  background-color: var(--color-sage);
+}
+
+.product-card__color-dot--lavender {
+  background-color: var(--color-lavender);
+}
+
+.product-card__color-dot--sand {
+  background-color: var(--color-border);
+}
+
+.product-card__color-dot--espresso {
+  background-color: var(--color-heading);
+}
+
+.product-card__color-dot--terracotta {
+  background-color: var(--color-terracotta);
+}
+
+.product-card__color-dot--accent {
+  background-color: var(--color-accent);
 }
 
 /* ================================================
