@@ -1,112 +1,208 @@
-# Production Readiness Audit
+# TARA Production Readiness Audit
 
-Status: Not production-ready yet.
+_Last updated: 2026-05-11_
 
-This audit covers the current TARA static prototype in `website/` as of the `master` branch. It focuses on stability, security/privacy, performance, accessibility, and German ecommerce launch requirements.
+## Executive summary
 
-## Critical Launch Blockers
+The current site is a strong static prototype, but it is **not ready for public production launch**. The largest launch blockers are not implementation details that should be guessed in code: they require confirmed business, legal, ecommerce, privacy, and asset-licensing inputs.
 
-- [ ] Replace placeholder legal entity data in `website/src/legal/impressum.njk`, `datenschutz.njk`, `agb.njk`, and `widerruf.njk`.
-  - Current pages include sample values such as `TARA GmbH`, `Musterstraße`, sample registry data, and placeholder contacts.
-  - These must be reviewed by the business/legal owner before launch.
+This audit records the required decisions and implementation work so the project can move toward production without inventing legal entity data, product data, payment setup, or consent requirements.
 
-- [ ] Replace remote Google Fonts with self-hosted font files.
-  - `website/src/_layouts/base.njk` loads `fonts.googleapis.com` and `fonts.gstatic.com`.
-  - For a Germany-first storefront, self-hosting reduces GDPR/privacy risk caused by visitor IP transfer to third-party font servers.
+## Current state
 
-- [ ] Replace Unsplash hotlinked images with licensed, optimized production assets.
-  - Current pages depend heavily on `images.unsplash.com`.
-  - Production images should live in the project or Shopify CDN, use WebP/AVIF with fallback, fixed dimensions, and appropriate `loading`/`fetchpriority` values.
+- Static Eleventy storefront prototype for the TARA cotton clothing brand.
+- Core pages are present: homepage, collection, product, brand story, materials, size guide, and four legal-page placeholders.
+- Cookie banner UI exists with essential, analytics, and marketing categories.
+- Product/catalog content and imagery are prototype content.
+- No Shopify/cart/payment integration is connected yet.
 
-- [ ] Implement real product routing and product data.
-  - Collection product cards currently link to the same `/product/` route.
-  - Each SKU needs a real product detail page or Shopify product mapping before launch.
+## Production launch blockers
 
-- [ ] Wire the add-to-cart action to real cart behavior.
-  - `website/src/product.njk` has an `In den Warenkorb` button.
-  - `website/js/main.js` does not currently handle `.product-info__add-to-cart`.
+### 1. Legal entity and German compliance data
 
-## Privacy And Security
+**Status:** Blocked by business/legal input.
 
-- [ ] Consolidate cookie consent handling.
-  - Consent logic appears in both `website/js/main.js` and `website/js/cookie.js`.
-  - Keep one consent owner, add consent versioning, add reject-all behavior, and gate analytics/marketing scripts until opt-in.
+The legal pages currently contain placeholder company details. Before launch, replace all placeholder data with verified legal information reviewed by qualified counsel.
 
-- [ ] Remove inline event handlers.
-  - Example: announcement close button in `website/src/_includes/header.njk` uses inline `onclick`.
-  - Move behavior into `website/js/main.js` for CSP compatibility.
+Required inputs:
 
-- [ ] Add a production Content Security Policy after external dependencies are removed.
-  - Recommended after self-hosting fonts and images.
-  - Start strict, then explicitly allow Shopify/payment/trust integrations as needed.
+- Registered legal entity name.
+- Registered business address.
+- Managing director or legally responsible representative.
+- Commercial register number and court, if applicable.
+- VAT ID, if applicable.
+- Customer-service email and phone number.
+- Final decisions for dispute-resolution participation text.
+- Legal review of Impressum, Datenschutz, AGB, and Widerruf content.
 
-- [ ] Confirm no third-party marketing, analytics, review, or tracking scripts load before consent.
+Do **not** ship with sample names, sample addresses, sample register IDs, or sample VAT IDs.
 
-## Accessibility
+### 2. Privacy, cookies, analytics, and fonts
 
-- [ ] Fix global link contrast.
-  - Current `--color-link` in `website/css/variables.css` is too low contrast on `--color-bg` for normal text.
-  - Target WCAG AA contrast ratio of at least 4.5:1.
+**Status:** Blocked by privacy/legal decisions.
 
-- [ ] Add visible `:focus-visible` styles for interactive controls.
-  - Buttons, header actions, product cards, drawers, bottom nav, forms, and menu links need consistent keyboard focus indicators.
+The prototype currently presents consent categories, but production privacy behavior depends on the actual services enabled.
 
-- [ ] Add `aria-expanded` and keyboard semantics for accordions, mobile menu, cart drawer, wishlist drawer, search overlay, and account menu.
+Required inputs:
 
-- [ ] Add focus management for modal/drawer states.
-  - Focus should move into opened overlays/drawers and return to the trigger on close.
+- Analytics provider decision, if any.
+- Marketing/ad pixels decision, if any.
+- Newsletter provider decision.
+- Shopify app list and their cookie/tracking behavior.
+- Font-hosting decision: externally hosted web fonts vs. locally hosted/self-hosted fonts.
+- Data-processing agreements for all processors.
+- Final cookie category mapping and consent-retention policy.
 
-- [ ] Respect reduced-motion preferences.
-  - Add a `prefers-reduced-motion: reduce` block to disable smooth scroll and non-essential animations.
+Implementation requirements:
 
-- [ ] Review small text sizes.
-  - Several mobile labels/badges use font sizes below the stated minimum. Functional text should stay readable for the 35-55 audience.
+- No analytics or marketing scripts should load before explicit consent.
+- Datenschutzerklärung must accurately list every processor/service used in production.
+- Cookie settings must remain accessible from the footer after initial consent.
 
-## Performance
+### 3. Product catalog and pricing
 
-- [ ] Optimize hero images.
-  - Current hero images are remote and large.
-  - Production target: max 2400x1200, under 300 KB, dimensions set to prevent layout shift.
+**Status:** Blocked by merchandising/product input.
 
-- [ ] Add image width/height attributes or CSS aspect-ratio reservations for all major product and hero images.
+The product catalog uses prototype product names, descriptions, prices, colors, and imagery. Production requires a finalized source of truth.
 
-- [ ] Bundle/minify production CSS and JS or configure the hosting pipeline to do so.
+Required inputs:
 
-- [ ] Run Lighthouse against the built site and target 90+ across Performance, Accessibility, Best Practices, and SEO.
+- Production SKU list.
+- Product names and German descriptions.
+- Variant matrix: sizes, colors, inventory, materials.
+- Final prices including VAT handling.
+- Shipping-cost copy and thresholds.
+- Model sizing notes per product.
+- Material/care details per product.
+- Certifications that may be claimed, with documentation.
 
-- [ ] Run a real mobile viewport QA pass for text wrapping, tap targets, drawer behavior, and bottom navigation overlap.
+Implementation requirements:
 
-## Ecommerce And German Market Requirements
+- Product pages must display accurate VAT and shipping-cost notices.
+- Any sustainability/certification claims must be backed by documentation.
+- Product structured data should not be added until production product data is final.
 
-- [ ] Ensure every visible product price includes `inkl. MwSt.` and shipping cost information near the buying decision.
+### 4. Ecommerce, cart, checkout, payments, and transactional flows
 
-- [ ] Add all required payment methods in production checkout: Klarna, PayPal, SEPA Lastschrift, Sofortüberweisung, Visa, Mastercard.
+**Status:** Blocked by platform/payment setup.
 
-- [ ] Add DHL shipping details, free shipping threshold, estimated delivery dates, and free returns messaging consistently.
+The static cart drawer is a prototype interaction and does not complete purchases.
 
-- [ ] Add Trusted Shops seal and verified purchase reviews after the production trust provider is selected.
+Required inputs:
 
-- [ ] Add visible phone/contact support information.
+- Confirmed Shopify store/theme architecture.
+- Cart and checkout routing.
+- Payment methods enabled for Germany, such as PayPal, Klarna, card payments, and SEPA where applicable.
+- Tax setup and invoice requirements.
+- Shipping zones, rates, carriers, and estimated delivery-copy rules.
+- Return flow and support process.
+- Transactional email templates.
 
-- [ ] Add complete German and English content, not runtime text replacement only.
-  - Current language toggle changes selected text nodes in the browser.
-  - Production should use proper localized pages or Shopify multilingual content.
+Implementation requirements:
 
-## Recommended Fix Order
+- Cart actions must connect to the real ecommerce backend before launch.
+- Checkout must be tested end to end in test mode and production mode.
+- Payment badges should only show enabled payment methods.
 
-1. Legal/entity and privacy dependencies: legal pages, self-host fonts, remove third-party image hotlinks.
-2. Ecommerce correctness: product routes, real cart integration, checkout/payment mapping.
-3. Consent and security hardening: single consent module, reject all, script gating, CSP.
-4. Accessibility: contrast, focus states, drawer/accordion semantics, reduced motion.
-5. Performance: optimized images, dimensions, Lighthouse fixes.
-6. Final launch QA: desktop/mobile browser matrix, German native copy review, Shopify test orders.
+### 5. Imagery and licensing
 
-## Verification Needed Before Launch
+**Status:** Blocked by brand/creative input.
 
-- [ ] `npm install` succeeds in `website/`.
-- [ ] `npm run build` succeeds in `website/`.
-- [ ] Lighthouse reports are captured for home, collection, product, and legal pages.
-- [ ] Keyboard-only navigation passes for header, menu, search, cart, wishlist, product page, and cookie banner.
-- [ ] Cookie banner records granular choices and blocks non-essential scripts until opt-in.
-- [ ] Shopify test order passes for each payment method.
-- [ ] Legal pages are approved by the business/legal owner.
+The prototype uses external placeholder imagery. Production must use licensed, brand-approved assets.
+
+Required inputs:
+
+- Licensed product photography.
+- Model releases where applicable.
+- Usage rights for editorial, product, email, and paid-media contexts.
+- Image alt text reviewed against final imagery.
+- Asset optimization requirements and responsive image sizes.
+
+Implementation requirements:
+
+- Replace placeholder/stock image URLs before launch.
+- Host optimized production assets under approved hosting/CDN.
+- Avoid claims implied by imagery that do not match the actual product.
+
+### 6. Accessibility, performance, and QA
+
+**Status:** Requires implementation QA after production content is available.
+
+Required checks:
+
+- Keyboard navigation through header, overlays, drawers, cookie banner, product options, and forms.
+- Screen-reader labels for interactive controls.
+- Color contrast across all production content and imagery overlays.
+- Mobile navigation usability on target devices.
+- Lighthouse or equivalent performance/accessibility checks.
+- Broken-link checks after final URLs are known.
+- Cross-browser testing on current Chrome, Safari, Firefox, and mobile Safari/Chrome.
+
+## Pre-launch checklist
+
+### Business/legal
+
+- [ ] Confirm legal entity details.
+- [ ] Replace all placeholder legal data.
+- [ ] Complete qualified legal review of Impressum, Datenschutz, AGB, and Widerruf.
+- [ ] Confirm VAT, shipping, returns, and dispute-resolution copy.
+- [ ] Confirm customer-service channels and response ownership.
+
+### Privacy/consent
+
+- [ ] Decide analytics provider or confirm no analytics.
+- [ ] Decide marketing pixels or confirm none.
+- [ ] Decide newsletter provider.
+- [ ] Document all processors and data-transfer details.
+- [ ] Ensure non-essential scripts load only after consent.
+- [ ] Verify footer cookie-settings link works after consent is saved.
+
+### Ecommerce
+
+- [ ] Confirm Shopify store architecture.
+- [ ] Connect real cart behavior.
+- [ ] Configure payment methods.
+- [ ] Test checkout with each payment method.
+- [ ] Configure shipping rates and return flow.
+- [ ] Verify transactional emails.
+
+### Content/catalog
+
+- [ ] Finalize SKU list and variants.
+- [ ] Replace prototype descriptions and prices.
+- [ ] Add accurate material/care and model sizing details.
+- [ ] Verify every sustainability or certification claim.
+- [ ] Review German copy for tone and clarity.
+
+### Assets
+
+- [ ] Replace all placeholder imagery.
+- [ ] Verify licenses and model releases.
+- [ ] Optimize responsive image sizes.
+- [ ] Review alt text against final images.
+
+### Technical QA
+
+- [ ] Run production build.
+- [ ] Run accessibility checks.
+- [ ] Run link checks.
+- [ ] Test mobile and desktop viewports.
+- [ ] Test overlays/drawers/forms with keyboard only.
+- [ ] Verify no console errors in production build.
+
+## Recommended next implementation sequence
+
+1. Collect verified business/legal/privacy decisions.
+2. Replace legal-page placeholder content only after legal review.
+3. Decide production ecommerce architecture and wire cart/checkout to Shopify.
+4. Replace prototype catalog with production product data.
+5. Replace all placeholder imagery with licensed assets.
+6. Add consent-gated analytics/marketing scripts only after vendor decisions are final.
+7. Run full accessibility, performance, browser, and checkout QA.
+
+## Non-goals for this audit
+
+- This document is not legal advice.
+- This document does not certify GDPR, German ecommerce, tax, or consumer-law compliance.
+- This document does not approve the current prototype for production launch.
+- This document intentionally avoids inventing legal, business, payment, or product details.
