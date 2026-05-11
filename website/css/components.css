@@ -1061,11 +1061,15 @@
 
 .account-dropdown__item {
   display: block;
+  width: 100%;
   padding: 0.75rem 1rem;
   font-family: var(--font-body);
   font-size: var(--text-small);
   color: var(--color-text);
+  background: none;
+  border: none;
   text-decoration: none;
+  text-align: left;
   transition: color var(--transition-fast);
 }
 
