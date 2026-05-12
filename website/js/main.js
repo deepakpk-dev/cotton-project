@@ -44,6 +44,64 @@ document.addEventListener('DOMContentLoaded', () => {
   cartClose?.addEventListener('click', closeCart);
   cartOverlay?.addEventListener('click', closeCart);
 
+  const cartState = {
+    items: JSON.parse(localStorage.getItem('tara-cart') || '[]')
+  };
+
+  function formatEuro(value) {
+    return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(value);
+  }
+
+  function saveCart() {
+    localStorage.setItem('tara-cart', JSON.stringify(cartState.items));
+  }
+
+  function renderCart() {
+    const cartItems = document.getElementById('cartItems');
+    const cartEmptyState = document.getElementById('cartEmptyState');
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const count = cartState.items.reduce((sum, item) => sum + item.quantity, 0);
+    const subtotal = cartState.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    document.querySelectorAll('.header__cart-count, .bottom-nav__cart-count').forEach(el => {
+      el.textContent = String(count);
+    });
+
+    if (cartSubtotal) cartSubtotal.textContent = formatEuro(subtotal);
+    if (!cartItems || !cartEmptyState) return;
+
+    cartEmptyState.hidden = cartState.items.length > 0;
+    cartItems.hidden = cartState.items.length === 0;
+    cartItems.innerHTML = cartState.items.map(item => `
+      <div class="cart-line">
+        <div>
+          <strong>${item.name}</strong>
+          <span>Menge ${item.quantity}</span>
+        </div>
+        <span>${formatEuro(item.price * item.quantity)}</span>
+      </div>
+    `).join('');
+  }
+
+  document.querySelectorAll('.product-info__add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+      const id = button.dataset.productId;
+      const name = button.dataset.productName;
+      const price = Number(button.dataset.productPrice);
+      const existing = cartState.items.find(item => item.id === id);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cartState.items.push({ id, name, price, quantity: 1 });
+      }
+      saveCart();
+      renderCart();
+      openCart();
+    });
+  });
+
+  renderCart();
+
   // Close cart on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {

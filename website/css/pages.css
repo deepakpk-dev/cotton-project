@@ -144,6 +144,18 @@
   transform: scale(1.1);
 }
 
+.product-info__color-swatch--creme {
+  background-color: var(--color-bg);
+}
+
+.product-info__color-swatch--rose {
+  background-color: var(--color-accent);
+}
+
+.product-info__color-swatch--sage {
+  background-color: var(--color-sage);
+}
+
 /* Size selector */
 .size-selector {
   margin-bottom: var(--space-md);
@@ -371,6 +383,10 @@
   font-size: var(--text-caption);
   line-height: 1.8;
   color: var(--color-text);
+}
+
+.accordion__subheading {
+  margin-top: 0.75rem;
 }
 
 .accordion__content table {

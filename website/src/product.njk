@@ -4,6 +4,7 @@ title: "Wickelkleid Lumière — TARA"
 description: "Wickelkleid Lumière — 100% Bio-Baumwolle, zeitloses Design. OEKO-TEX® zertifiziert."
 bodyClass: "page-product"
 ---
+{% set product = products[0] %}
 
   <!-- Breadcrumbs -->
   <div class="container">
@@ -12,7 +13,7 @@ bodyClass: "page-product"
       <span>/</span>
       <a href="/collection/">Lumière Douce</a>
       <span>/</span>
-      Wickelkleid Lumière
+      {{ product.name }}
     </nav>
   </div>
 
@@ -24,20 +25,20 @@ bodyClass: "page-product"
         <!-- Left: Image Gallery -->
         <div class="product-gallery">
           <div class="product-gallery__main">
-            <img id="productMainImage" src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=1200&h=1600&fit=crop" alt="Wickelkleid Lumière in Creme — Vorderansicht">
+            <img id="productMainImage" src="{{ product.image }}" alt="{{ product.alt }}">
           </div>
           <div class="product-gallery__thumbs">
-            <button class="product-gallery__thumb active" data-src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=1200&h=1600&fit=crop" data-alt="Wickelkleid Lumière — Vorderansicht">
-              <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=300&h=400&fit=crop" alt="Thumbnail 1" loading="lazy">
+            <button class="product-gallery__thumb active" data-src="{{ product.image }}" data-alt="{{ product.alt }}">
+              <img src="{{ product.image }}" alt="{{ product.name }} Vorderansicht" loading="lazy">
             </button>
-            <button class="product-gallery__thumb" data-src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1200&h=1600&fit=crop" data-alt="Wickelkleid Lumière — Seitenansicht">
-              <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=300&h=400&fit=crop" alt="Thumbnail 2" loading="lazy">
+            <button class="product-gallery__thumb" data-src="{{ product.hoverImage }}" data-alt="{{ product.hoverAlt }}">
+              <img src="{{ product.hoverImage }}" alt="{{ product.name }} getragen" loading="lazy">
             </button>
-            <button class="product-gallery__thumb" data-src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&h=1600&fit=crop" data-alt="Wickelkleid Lumière — Stoffdetail">
-              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=300&h=400&fit=crop" alt="Thumbnail 3" loading="lazy">
+            <button class="product-gallery__thumb" data-src="/images/tara/editorial-cotton-detail.webp" data-alt="Stoffdetail aus Bio-Baumwolle">
+              <img src="/images/tara/editorial-cotton-detail.webp" alt="Stoffdetail aus Bio-Baumwolle" loading="lazy">
             </button>
-            <button class="product-gallery__thumb" data-src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&h=1600&fit=crop" data-alt="Wickelkleid Lumière — Lifestyle">
-              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&h=400&fit=crop" alt="Thumbnail 4" loading="lazy">
+            <button class="product-gallery__thumb" data-src="/images/tara/editorial-wrap-dress.webp" data-alt="Wickelkleid Lumiere im Lookbook">
+              <img src="/images/tara/editorial-wrap-dress.webp" alt="Wickelkleid Lumiere im Lookbook" loading="lazy">
             </button>
           </div>
         </div>
@@ -47,16 +48,16 @@ bodyClass: "page-product"
           <p class="product-info__collection">
             <a href="/collection/">Lumière Douce &mdash; FS 2026</a>
           </p>
-          <h1 class="product-info__name">Wickelkleid Lumière</h1>
-          <p class="product-info__price">&euro;98,00 <small>inkl. MwSt.</small></p>
+          <h1 class="product-info__name">{{ product.name }}</h1>
+          <p class="product-info__price">&euro;{{ product.price }},00 <small>{{ site.commerce.taxNotice }} · {{ site.commerce.shippingNotice }}</small></p>
 
           <!-- Colors -->
           <div class="product-info__colors">
             <p class="product-info__colors-label">Farbe: <strong>Crème</strong></p>
             <div class="product-info__color-options">
-              <button class="product-info__color-swatch active" style="background-color: #F5F0E8" title="Crème" aria-label="Farbe Crème"></button>
-              <button class="product-info__color-swatch" style="background-color: #C4A08A" title="Rosé" aria-label="Farbe Rosé"></button>
-              <button class="product-info__color-swatch" style="background-color: #9BAF93" title="Salbei" aria-label="Farbe Salbei"></button>
+              <button class="product-info__color-swatch product-info__color-swatch--creme active" title="Crème" aria-label="Farbe Crème"></button>
+              <button class="product-info__color-swatch product-info__color-swatch--rose" title="Rosé" aria-label="Farbe Rosé"></button>
+              <button class="product-info__color-swatch product-info__color-swatch--sage" title="Salbei" aria-label="Farbe Salbei"></button>
             </div>
           </div>
 
@@ -86,20 +87,18 @@ bodyClass: "page-product"
               <input class="qty-input" type="number" value="1" min="1" max="10" aria-label="Menge">
               <button class="qty-btn" data-action="plus" aria-label="Menge erhöhen">+</button>
             </div>
-            <button class="btn btn--primary product-info__add-to-cart">In den Warenkorb</button>
+            <button class="btn btn--primary product-info__add-to-cart" data-product-id="{{ product.id }}" data-product-name="{{ product.name }}" data-product-price="{{ product.price }}">In den Warenkorb</button>
             <button class="product-info__wishlist-btn" aria-label="Zur Wunschliste">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </button>
           </div>
 
           <!-- Payment badges -->
-          <div class="product-info__payment-badges">
+          <div class="product-info__payment-badges" aria-label="Zahlungsarten">
             <span>Bezahlen mit:</span>
-            <span><strong>Klarna</strong></span>
-            <span>&bull;</span>
-            <span><strong>PayPal</strong></span>
-            <span>&bull;</span>
-            <span><strong>SEPA</strong></span>
+            {% for payment in site.payments %}
+              <span><strong>{{ payment }}</strong></span>{% if not loop.last %}<span>&bull;</span>{% endif %}
+            {% endfor %}
           </div>
 
           <!-- Accordion Details -->
@@ -117,7 +116,7 @@ bodyClass: "page-product"
                   <p><strong>Zusammensetzung:</strong> 100% Bio-Baumwolle (GOTS zertifiziert)</p>
                   <p><strong>Gewicht:</strong> 160 g/m² — leicht und fließend</p>
                   <p><strong>Webung:</strong> Popeline — glatte, matte Oberfläche mit sanftem Fall</p>
-                  <p style="margin-top: 0.75rem;"><strong>Pflegehinweise:</strong></p>
+                  <p class="accordion__subheading"><strong>Pflegehinweise:</strong></p>
                   <p>Maschinenwäsche bei 30°C &bull; Nicht bleichen &bull; Niedrige Temperatur bügeln &bull; Nicht im Trockner trocknen &bull; An der Luft trocknen</p>
                 </div>
               </div>
