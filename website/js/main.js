@@ -222,23 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ---- Cookie Banner ----
-  const cookieBanner = document.getElementById('cookieBanner');
-  if (cookieBanner) {
-    const cookieAccepted = localStorage.getItem('tara-cookies-accepted');
-    if (!cookieAccepted) {
-      setTimeout(() => {
-        cookieBanner.classList.add('is-visible');
-      }, 1500);
-    }
-
-    cookieBanner.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        localStorage.setItem('tara-cookies-accepted', 'true');
-      });
-    });
-  }
-
   // ---- Scroll Animations (Intersection Observer) ----
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   if (animatedElements.length > 0 && 'IntersectionObserver' in window) {
@@ -399,20 +382,38 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---- Product Card Wishlist Toggle ----
+  const wishlistState = new Set(JSON.parse(localStorage.getItem('tara-wishlist') || '[]'));
+
+  function saveWishlist() {
+    localStorage.setItem('tara-wishlist', JSON.stringify([...wishlistState]));
+  }
+
+  function renderWishlistButtons() {
+    document.querySelectorAll('.product-card__wishlist').forEach(btn => {
+      const id = btn.dataset.productId;
+      const svg = btn.querySelector('svg');
+      const active = wishlistState.has(id);
+      btn.classList.toggle('is-active', active);
+      svg?.setAttribute('fill', active ? 'var(--color-accent)' : 'none');
+      svg?.setAttribute('stroke', active ? 'var(--color-accent)' : 'var(--color-heading)');
+      btn.setAttribute('aria-pressed', String(active));
+    });
+  }
+
   document.querySelectorAll('.product-card__wishlist').forEach(btn => {
     btn.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      const svg = btn.querySelector('svg');
-      const isFilled = svg.getAttribute('fill') !== 'none';
-      if (isFilled) {
-        svg.setAttribute('fill', 'none');
-        svg.setAttribute('stroke', 'var(--color-heading)');
-      } else {
-        svg.setAttribute('fill', '#C4A08A');
-        svg.setAttribute('stroke', '#C4A08A');
-      }
+      const id = btn.dataset.productId;
+      if (!id) return;
+      if (wishlistState.has(id)) wishlistState.delete(id);
+      else wishlistState.add(id);
+      saveWishlist();
+      renderWishlistButtons();
     });
   });
+
+  renderWishlistButtons();
 
   // ---- Product Page: Image Gallery ----
   const mainImage = document.getElementById('productMainImage');

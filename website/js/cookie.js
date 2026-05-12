@@ -12,40 +12,38 @@ function getConsent() {
   }
 }
 
-function saveConsent(analytics, marketing) {
+function saveConsent(selection) {
   const consent = {
     essential: true,
-    analytics: analytics,
-    marketing: marketing,
-    timestamp: Date.now()
+    analytics: Boolean(selection.analytics),
+    marketing: Boolean(selection.marketing),
+    timestamp: new Date().toISOString()
   };
   localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
   hideBanner();
+  document.dispatchEvent(new CustomEvent('tara:consent-updated', { detail: consent }));
 }
 
 function hideBanner() {
-  const banner = document.getElementById('cookieBanner');
-  if (banner) banner.classList.remove('is-visible');
+  document.getElementById('cookieBanner')?.classList.remove('is-visible');
 }
 
 function showBanner() {
-  const banner = document.getElementById('cookieBanner');
-  if (banner) banner.classList.add('is-visible');
+  document.getElementById('cookieBanner')?.classList.add('is-visible');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  if (!getConsent()) {
-    showBanner();
-  }
+  if (!getConsent()) showBanner();
 
   document.getElementById('cookieAcceptAll')?.addEventListener('click', function() {
-    saveConsent(true, true);
+    saveConsent({ analytics: true, marketing: true });
   });
 
   document.getElementById('cookieSaveSelection')?.addEventListener('click', function() {
-    const analytics = document.getElementById('cookieAnalytics')?.checked ?? false;
-    const marketing = document.getElementById('cookieMarketing')?.checked ?? false;
-    saveConsent(analytics, marketing);
+    saveConsent({
+      analytics: document.getElementById('cookieAnalytics')?.checked,
+      marketing: document.getElementById('cookieMarketing')?.checked
+    });
   });
 
   document.getElementById('cookieSettingsLink')?.addEventListener('click', function(e) {
