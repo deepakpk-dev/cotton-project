@@ -1,6 +1,6 @@
 # TARA
 
-> A production-minded ecommerce prototype for a Germany-first cotton fashion brand.
+> A frontend portfolio case study by Deepak: an editorial ecommerce prototype for a Germany-first cotton fashion brand.
 
 [![Eleventy](https://img.shields.io/badge/Eleventy-3.1.5-222222?style=flat-square)](https://www.11ty.dev/)
 ![Nunjucks](https://img.shields.io/badge/Nunjucks-Templates-3D3633?style=flat-square)
@@ -8,34 +8,60 @@
 ![Focus](https://img.shields.io/badge/Focus-UX%20%2B%20Product%20Thinking-9BAF93?style=flat-square)
 ![Market](https://img.shields.io/badge/Market-Germany%20First-E8E0D8?style=flat-square)
 
-This project is a polished storefront prototype for **TARA**, an accessible premium cotton clothing brand aimed at women aged 35-55 in the German market. It was built to simulate the level of craft, trust, and launch realism that a real fashion ecommerce experience needs: editorial storytelling, credible product merchandising, GDPR-aware UX, German legal surfaces, and a conversion-oriented product flow.
+This repo is a portfolio case study for **TARA**, a fictional accessible-premium cotton clothing brand designed for women aged 35-55 in Germany. I built it to show how I think about **frontend execution, UX clarity, trust-building, and market-aware product decisions** when the goal is not just a pretty landing page, but a credible ecommerce experience.
 
 **Built by:** Deepak (`deepakpk-dev`)  
 **GitHub:** [deepakpk-dev](https://github.com/deepakpk-dev)  
 **LinkedIn:** [deepakpk](https://www.linkedin.com/in/deepakpk/)  
 **Contact:** [deepakp.tvla@gmail.com](mailto:deepakp.tvla@gmail.com)
 
-## Why This Project Is Strong Portfolio Material
+## Live Demo
 
-- It combines **frontend execution** with **product judgment**, instead of stopping at a pretty mockup.
-- It treats ecommerce as a real operating environment: trust, payments, legal pages, shipping copy, wishlist/cart behavior, and accessibility all matter.
-- It shows the ability to translate **market research and ICP thinking** into interface decisions.
-- It is structured as an Eleventy/Nunjucks codebase rather than a one-off static page, making it easier to extend or migrate into a real storefront.
+[View the live deployment](https://cotton-project-eta.vercel.app/)
+
+## 30-Second Read
+
+- I designed and built a multi-page fashion ecommerce prototype with **Eleventy, Nunjucks, vanilla JavaScript, and a token-based CSS system**.
+- I treated the brief like a real market problem, not a gallery mockup: German legal surfaces, payment expectations, shipping cues, trust signals, readability for an older audience, and GDPR-aware interactions all shaped the interface.
+- I used the project to demonstrate **decision-making**, especially where product strategy and frontend implementation meet.
+- This is **production-minded**, but still clearly a **prototype**. The repo documents what is working today and what would need to change before launch.
+
+## What I Owned
+
+I owned the project end-to-end:
+
+- Brand positioning and interface direction for a fictional Germany-first cotton label
+- Research synthesis from ICP, competitor, and market documents into concrete UX choices
+- Information architecture for homepage, collection, product, editorial, materials, size-guide, and legal flows
+- Frontend implementation using reusable Eleventy templates, centralized data, CSS tokens, and vanilla JavaScript interactions
+- Prototype realism details such as cookie consent, cart drawer behavior, wishlist persistence, shipping/tax copy, and German launch requirements
+
+## Why This Is Strong Portfolio Material
+
+- It shows I can move from **research and product framing** into an implemented interface.
+- It demonstrates **taste with constraints**: premium editorial design, but still readable, trustworthy, and conversion-aware.
+- It shows I think beyond happy-path UI by including legal, operational, and trust-building surfaces that matter in real ecommerce.
+- It is structured as a maintainable static application rather than a one-off mockup.
 
 ## Recruiter Snapshot
 
 | Area | Summary |
 | --- | --- |
-| Product Type | Fashion ecommerce prototype |
-| Positioning | Accessible premium cotton brand for the German market |
-| Stack | Eleventy 3, Nunjucks, vanilla JavaScript, CSS tokens |
-| Key Behaviors | Cookie consent, cart drawer, wishlist persistence, legal pages, bilingual-ready structure |
-| User Focus | Women 35-55, readability-first, editorial but conversion-aware |
-| Outcome | A credible launch-simulation prototype, not just a visual concept |
+| Project Type | Frontend portfolio case study |
+| Domain | Fashion ecommerce |
+| Market | Germany-first, bilingual-ready |
+| Stack | Eleventy 3, Nunjucks, vanilla JavaScript, CSS variables |
+| What It Proves | Product judgment, UX systems thinking, frontend craft, implementation discipline |
+| Prototype Scope | Editorial storefront, collection browsing, product detail flow, legal pages, consent, cart drawer, wishlist |
 
-## Demo Preview
+## My Key Decisions
 
-The walkthrough video is not hosted yet. The README is ready for a clickable demo thumbnail once a final video URL is available.
+- I positioned the brand as **French Soft Elegance** to create a distinct tone between minimal accessible premium and softer lifestyle storytelling.
+- I optimized readability for **women aged 35-55**, which drove typography scale, spacing, restraint, and navigation clarity.
+- I used a **cart drawer** instead of a hard cart page to preserve product context and reduce flow interruption.
+- I chose a **mobile bottom-tab pattern** over a hamburger-heavy approach because primary shopping actions needed to remain visible.
+- I treated sustainability as a **quiet trust signal** instead of headline activism to better match the audience and brand tone.
+- I included German legal and trust surfaces because a credible Germany-first storefront needs them to feel real.
 
 ## Visual Walkthrough
 
@@ -59,60 +85,47 @@ The walkthrough video is not hosted yet. The README is ready for a clickable dem
 
 <img src="assets/screenshots/recruiter/tara-home-mobile-clean.png" alt="TARA mobile homepage" width="360" />
 
-## What The Prototype Delivers
+## What The Prototype Includes
 
-- **Editorial homepage experience** with brand positioning, capsule storytelling, and trust cues.
-- **Collection browsing flow** designed around curated discovery rather than generic catalog clutter.
-- **Product detail architecture** with shipping, returns, payments, sustainability, and fit context.
-- **German legal and compliance surfaces** including Impressum, Datenschutz, AGB, and Widerruf.
-- **Cookie consent behavior** that matches a GDPR-aware storefront prototype.
-- **Cart and wishlist persistence** using `localStorage` to make interactions feel real during prototype review.
-- **Bilingual-ready structure** for Germany-first UX with English support.
+- Editorial homepage with capsule storytelling, product highlights, and trust cues
+- Collection page with lookbook framing, merchandising, and sorting/filter UI
+- Product detail page with shipping, returns, payments, fit, materials, and sustainability context
+- German legal pages for `Impressum`, `Datenschutz`, `AGB`, and `Widerruf`
+- Cookie consent banner with persisted preferences
+- Wishlist and cart drawer state persisted in `localStorage`
+- Bilingual-ready structure for German-primary commerce content
 
-## Product And UX Decisions
+## Architecture
 
-- The brand is framed as **French Soft Elegance**: warm neutrals, editorial typography, quiet premium tone.
-- The target customer is older than the usual fast-fashion audience, so readability, spacing, and restraint are intentional.
-- The mobile experience favors a **bottom-tab pattern** over an invisible hamburger-first flow.
-- The cart is modeled as a **drawer**, keeping product context intact instead of forcing hard page transitions.
-- Sustainability is present as a **trust signal**, not performative messaging.
-- The prototype intentionally includes launch-critical trust elements because German ecommerce customers research thoroughly before buying.
-
-## Technical Highlights
-
-- **Eleventy + Nunjucks architecture** for reusable layouts, includes, and generated multi-page output.
-- **Token-based CSS system** with shared variables for color, spacing, typography, and component consistency.
-- **Centralized data files** for site-wide business details and product catalog content.
-- **Vanilla JavaScript interaction layer** for cookie consent, wishlist persistence, and cart drawer behavior.
-- **Production-minded content model** that separates source templates in `website/src` from generated output in `website/dist`.
-
-## Key Pages
-
-- `/` homepage
-- `/collection/` collection page
-- `/product/` product detail page
-- `/brand-story/` brand story page
-- `/materials/` materials page
-- `/size-guide/` size guide
-- `/legal/impressum/`
-- `/legal/datenschutz/`
-- `/legal/agb/`
-- `/legal/widerruf/`
+- **Eleventy + Nunjucks** for reusable layouts, includes, and generated pages
+- **Centralized data files** for company, commerce, cookie, and product content
+- **Token-based CSS** for consistent typography, spacing, color, and component styling
+- **Vanilla JavaScript** for cart, wishlist, drawer behavior, and consent state
+- **Static output** that can act as a prototype today and a migration reference for a later Shopify implementation
 
 ## Project Structure
 
 ```text
 cotton-project/
 ├── website/
-│   ├── src/                 # Eleventy source templates, includes, and data
-│   ├── dist/                # Generated static output
-│   ├── css/                 # Design tokens, layout, component, and page styles
+│   ├── src/                 # Eleventy templates, layouts, includes, and data
+│   ├── css/                 # Design tokens and styling layers
 │   ├── js/                  # Frontend interaction logic
-│   └── images/tara/         # Local brand and product imagery
-├── docs/                    # QA, plans, and design/spec material
-├── assets/screenshots/      # Recruiter-facing README screenshots
+│   └── images/tara/         # Local product and editorial imagery
+├── docs/                    # Portfolio brief, QA notes, plans, and specs
+├── assets/screenshots/      # Recruiter-facing screenshots
 └── README.md
 ```
+
+## Review This Repo Fast
+
+If you only have a few minutes, review these files:
+
+- [README.md](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/README.md)
+- [docs/TARA_Portfolio_Case_Study.md](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/docs/TARA_Portfolio_Case_Study.md)
+- [website/src/index.njk](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/website/src/index.njk)
+- [website/src/product.njk](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/website/src/product.njk)
+- [website/src/_data/site.js](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/website/src/_data/site.js)
 
 ## Run Locally
 
@@ -131,17 +144,29 @@ npm run build
 
 The Eleventy dev server typically runs at `http://localhost:8080`.
 
+## Prototype Boundaries
+
+This repo is intentionally honest about scope:
+
+- The legal identity and company fields are fictional prototype data
+- The cart, wishlist, newsletter, and consent flows are frontend prototype behavior, not production integrations
+- The storefront is static and not yet connected to Shopify, payments, fulfillment, or a live review system
+- The project is meant to show **how I think and build**, while still documenting what real launch work remains
+
+See:
+
+- [docs/TARA_Portfolio_Case_Study.md](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/docs/TARA_Portfolio_Case_Study.md)
+- [docs/TARA_Launch_QA_Checklist.md](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/docs/TARA_Launch_QA_Checklist.md)
+
 ## What I Would Do Next
 
-- Replace fictional legal and business identity fields with real reviewed production content.
-- Connect the prototype to a real commerce backend such as Shopify theme sections and AJAX cart flows.
-- Add a hosted narrated walkthrough video and wire it into the README hero section.
-- Run Lighthouse, accessibility, and cross-browser verification on the final deployed build.
-- Add real product photography, inventory, size data, and operational shipping/returns tooling.
+- Convert the prototype into a Shopify theme implementation with real cart and checkout behavior
+- Replace fictional legal/business identity data with reviewed production content
+- Add deployment, Lighthouse evidence, and accessibility verification for the final hosted build
+- Introduce real product data, localization workflows, and operational shipping/returns tooling
+- Publish a short walkthrough video to make recruiter review even faster
 
 ## Supporting Research
-
-This repo also includes the strategic work behind the interface:
 
 - [TARA_Market_Research_Report.md](TARA_Market_Research_Report.md)
 - [European_Women_ICP_Research.md](European_Women_ICP_Research.md)

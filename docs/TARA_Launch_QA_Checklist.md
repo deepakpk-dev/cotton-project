@@ -2,6 +2,8 @@
 
 Date: 2026-05-11
 
+This document exists to keep the case study honest. The prototype is strong portfolio material because it is explicit about what is implemented, what is simulated, and what would still be required before a real launch.
+
 ## Fictional Data To Replace
 
 - Company name: TARA Cotton GmbH
@@ -22,6 +24,13 @@ Date: 2026-05-11
 - Real Trusted Shops setup and verified review tooling.
 - Real product photography and model permissions.
 - Real product inventory, SKU, materials, country-of-origin, and care label data.
+
+## Recruiter Notes
+
+- The current repo demonstrates frontend craft, UX thinking, and product judgment.
+- It does not claim to be a finished commerce stack.
+- The fictional company data is intentional prototype scaffolding, not accidental placeholder content.
+- The static cart, wishlist, and consent flows are there to make the review experience more realistic.
 
 ## Static Prototype Verification
 
