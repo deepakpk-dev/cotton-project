@@ -1,238 +1,153 @@
-# TARA — Cotton Clothing Brand
+# TARA
 
-> French Soft Elegance. 100% Cotton. Made for Women 35–55.
+> A production-minded ecommerce prototype for a Germany-first cotton fashion brand.
 
-TARA is an accessible premium cotton clothing ecommerce brand launching in the German market with English language support. The brand is built around curated capsule collections, editorial storytelling, and a French Soft Elegance aesthetic — positioned between minimalist brands like Arket/COS and lifestyle brands like Toast.
+[![Eleventy](https://img.shields.io/badge/Eleventy-3.1.5-222222?style=flat-square)](https://www.11ty.dev/)
+![Nunjucks](https://img.shields.io/badge/Nunjucks-Templates-3D3633?style=flat-square)
+![Frontend](https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-C4A08A?style=flat-square)
+![Focus](https://img.shields.io/badge/Focus-UX%20%2B%20Product%20Thinking-9BAF93?style=flat-square)
+![Market](https://img.shields.io/badge/Market-Germany%20First-E8E0D8?style=flat-square)
 
----
+This project is a polished storefront prototype for **TARA**, an accessible premium cotton clothing brand aimed at women aged 35-55 in the German market. It was built to simulate the level of craft, trust, and launch realism that a real fashion ecommerce experience needs: editorial storytelling, credible product merchandising, GDPR-aware UX, German legal surfaces, and a conversion-oriented product flow.
 
-## Brand Identity
+**Built by:** Deepak (`deepakpk-dev`)  
+**GitHub:** [deepakpk-dev](https://github.com/deepakpk-dev)  
+**LinkedIn:** [deepakpk](https://www.linkedin.com/in/deepakpk/)  
+**Contact:** [deepakp.tvla@gmail.com](mailto:deepakp.tvla@gmail.com)
 
-| Attribute | Detail |
-|-----------|--------|
-| **Target Market** | Women aged 35–55 (primary), 25–60 (secondary) |
-| **Geography** | Germany-first, bilingual DE/EN |
-| **Aesthetic** | French Soft Elegance — warm creams, dusty rose, clean editorial |
-| **Positioning** | Accessible premium (between COS and Toast) |
-| **Product** | Curated capsule collections, 15–25 pieces per season |
-| **Sustainability** | Subtle — OEKO-TEX / GOTS certifications as trust signals, not activism |
-| **Pricing** | T-shirts €25–45 · Dresses €70–120 |
-| **Platform** | Shopify (Prestige theme) |
+## Why This Project Is Strong Portfolio Material
 
----
+- It combines **frontend execution** with **product judgment**, instead of stopping at a pretty mockup.
+- It treats ecommerce as a real operating environment: trust, payments, legal pages, shipping copy, wishlist/cart behavior, and accessibility all matter.
+- It shows the ability to translate **market research and ICP thinking** into interface decisions.
+- It is structured as an Eleventy/Nunjucks codebase rather than a one-off static page, making it easier to extend or migrate into a real storefront.
+
+## Recruiter Snapshot
+
+| Area | Summary |
+| --- | --- |
+| Product Type | Fashion ecommerce prototype |
+| Positioning | Accessible premium cotton brand for the German market |
+| Stack | Eleventy 3, Nunjucks, vanilla JavaScript, CSS tokens |
+| Key Behaviors | Cookie consent, cart drawer, wishlist persistence, legal pages, bilingual-ready structure |
+| User Focus | Women 35-55, readability-first, editorial but conversion-aware |
+| Outcome | A credible launch-simulation prototype, not just a visual concept |
+
+## Demo Preview
+
+The walkthrough video is not hosted yet. The README is ready for a clickable demo thumbnail once a final video URL is available.
+
+## Visual Walkthrough
+
+### Desktop homepage
+
+![TARA desktop homepage](assets/screenshots/recruiter/tara-home-hero-desktop-clean.png)
+
+### Collection browsing
+
+![TARA collection page](assets/screenshots/recruiter/tara-collection-desktop-clean.png)
+
+### Product detail flow
+
+![TARA product detail page](assets/screenshots/recruiter/tara-product-detail-clean.png)
+
+### Cart drawer interaction
+
+![TARA cart drawer](assets/screenshots/recruiter/tara-cart-drawer-clean.png)
+
+### Mobile experience
+
+<img src="assets/screenshots/recruiter/tara-home-mobile-clean.png" alt="TARA mobile homepage" width="360" />
+
+## What The Prototype Delivers
+
+- **Editorial homepage experience** with brand positioning, capsule storytelling, and trust cues.
+- **Collection browsing flow** designed around curated discovery rather than generic catalog clutter.
+- **Product detail architecture** with shipping, returns, payments, sustainability, and fit context.
+- **German legal and compliance surfaces** including Impressum, Datenschutz, AGB, and Widerruf.
+- **Cookie consent behavior** that matches a GDPR-aware storefront prototype.
+- **Cart and wishlist persistence** using `localStorage` to make interactions feel real during prototype review.
+- **Bilingual-ready structure** for Germany-first UX with English support.
+
+## Product And UX Decisions
+
+- The brand is framed as **French Soft Elegance**: warm neutrals, editorial typography, quiet premium tone.
+- The target customer is older than the usual fast-fashion audience, so readability, spacing, and restraint are intentional.
+- The mobile experience favors a **bottom-tab pattern** over an invisible hamburger-first flow.
+- The cart is modeled as a **drawer**, keeping product context intact instead of forcing hard page transitions.
+- Sustainability is present as a **trust signal**, not performative messaging.
+- The prototype intentionally includes launch-critical trust elements because German ecommerce customers research thoroughly before buying.
+
+## Technical Highlights
+
+- **Eleventy + Nunjucks architecture** for reusable layouts, includes, and generated multi-page output.
+- **Token-based CSS system** with shared variables for color, spacing, typography, and component consistency.
+- **Centralized data files** for site-wide business details and product catalog content.
+- **Vanilla JavaScript interaction layer** for cookie consent, wishlist persistence, and cart drawer behavior.
+- **Production-minded content model** that separates source templates in `website/src` from generated output in `website/dist`.
+
+## Key Pages
+
+- `/` homepage
+- `/collection/` collection page
+- `/product/` product detail page
+- `/brand-story/` brand story page
+- `/materials/` materials page
+- `/size-guide/` size guide
+- `/legal/impressum/`
+- `/legal/datenschutz/`
+- `/legal/agb/`
+- `/legal/widerruf/`
 
 ## Project Structure
 
-```
+```text
 cotton-project/
-├── website/                        # Static HTML/CSS/JS prototype
-│   ├── index.html                  # Homepage
-│   ├── collection.html             # Collection / catalog page
-│   ├── product.html                # Product detail page
-│   ├── css/
-│   │   ├── variables.css           # Design tokens (colors, fonts, spacing)
-│   │   ├── base.css                # Reset and global styles
-│   │   ├── components.css          # Reusable UI components
-│   │   ├── pages.css               # Page-specific styles
-│   │   └── responsive.css          # Breakpoint overrides
-│   └── js/
-│       └── main.js                 # Interactions and UI behavior
-├── TARA_Design_Plan.md             # Full design system specification
-├── TARA_Market_Research_Report.md  # Market research and ICP analysis
-├── European_Women_ICP_Research.md  # Detailed customer profile research
-├── European_Cotton_Brands_Research.md  # Competitor analysis
-├── CLAUDE.md                       # AI assistant project context
-└── README.md                       # This file
+├── website/
+│   ├── src/                 # Eleventy source templates, includes, and data
+│   ├── dist/                # Generated static output
+│   ├── css/                 # Design tokens, layout, component, and page styles
+│   ├── js/                  # Frontend interaction logic
+│   └── images/tara/         # Local brand and product imagery
+├── docs/                    # QA, plans, and design/spec material
+├── assets/screenshots/      # Recruiter-facing README screenshots
+└── README.md
 ```
 
----
+## Run Locally
 
-## Design System
+```bash
+cd website
+npm install
+npm run dev
+```
 
-### Color Palette
+Build the static site:
 
-| Role | Color | Hex |
-|------|-------|-----|
-| Background | Warm Cream | `#FAF7F2` |
-| Secondary BG | Soft Blush | `#F5E6E0` |
-| Primary Text | Warm Charcoal | `#3D3633` |
-| Heading Text | Deep Espresso | `#2C2220` |
-| Primary Accent | Dusty Rose | `#C4A08A` |
-| Secondary Accent | Soft Lavender | `#D5C8D9` |
-| Warm Accent | Muted Terracotta | `#C89B7B` |
-| Sustainability | Sage Green | `#9BAF93` |
-| Border / Divider | Pale Taupe | `#E8E0D8` |
+```bash
+cd website
+npm run build
+```
 
-**Rules**: Never use pure white (`#FFFFFF`) or pure black (`#000000`). Accent colors at max 15% of any page.
+The Eleventy dev server typically runs at `http://localhost:8080`.
 
-### Typography
+## What I Would Do Next
 
-| Element | Font | Size (Desktop) |
-|---------|------|----------------|
-| H1 Hero | Cormorant Garamond 300 | 56–64px |
-| H2 Section | Cormorant Garamond 400 | 36–42px |
-| H3 Cards | Cormorant Garamond 500 | 24–28px |
-| Body | Jost 300 | 16–17px |
-| Navigation | Jost 400 | 13–14px uppercase |
-| Buttons | Jost 400 | 14px uppercase |
+- Replace fictional legal and business identity fields with real reviewed production content.
+- Connect the prototype to a real commerce backend such as Shopify theme sections and AJAX cart flows.
+- Add a hosted narrated walkthrough video and wire it into the README hero section.
+- Run Lighthouse, accessibility, and cross-browser verification on the final deployed build.
+- Add real product photography, inventory, size data, and operational shipping/returns tooling.
 
-Both fonts loaded from Google Fonts. Minimum body text: **16px** (non-negotiable for 35–55 readability).
+## Supporting Research
 
----
+This repo also includes the strategic work behind the interface:
 
-## Website Pages
+- [TARA_Market_Research_Report.md](TARA_Market_Research_Report.md)
+- [European_Women_ICP_Research.md](European_Women_ICP_Research.md)
+- [European_Cotton_Brands_Research.md](European_Cotton_Brands_Research.md)
+- [docs/TARA_Launch_QA_Checklist.md](docs/TARA_Launch_QA_Checklist.md)
 
-### Homepage (`index.html`)
-- Announcement bar → Sticky navigation → Full-width hero
-- Collection editorial story (2-col: text + image)
-- Product grid highlights (3-col desktop, 2-col mobile)
-- Brand values strip (100% Cotton · OEKO-TEX · Free shipping · 30-day returns)
-- Social proof / UGC grid
-- Newsletter signup (with DSGVO compliance notice)
-- Footer with all German legal links
+## Contact
 
-### Collection Page (`collection.html`)
-- Editorial hero with collection name and story
-- Lookbook gallery (click to shop the look)
-- Full product grid with sticky filter bar (Size, Color, Price, Material)
-- Behind-the-scenes / fabric detail section
-
-### Product Page (`product.html`)
-- Split layout: image gallery (60%) + product info (40%)
-- Color swatches, size selector with fit guide link
-- "In den Warenkorb" CTA in Dusty Rose
-- Klarna / PayPal badge
-- Accordion sections: Materials & Care · Fit & Size · Sustainability · Shipping & Returns
-
----
-
-## German Market Requirements
-
-### Legal Pages (Mandatory Before Launch)
-- **Impressum** — full legal entity details
-- **Datenschutzerklärung** — GDPR/DSGVO privacy policy
-- **AGB** — General terms and conditions
-- **Widerrufsbelehrung** — 14-day withdrawal policy with model form
-- **Cookie consent banner** — granular opt-in (not just "accept all")
-- All prices must display "inkl. MwSt." with shipping cost info
-
-### Payments
-- Klarna (BNPL — dominant in Germany)
-- PayPal (57% of German online shoppers)
-- SEPA Lastschrift (direct debit)
-- Sofortüberweisung
-- Visa / Mastercard
-
-### Shipping & Returns
-- DHL as primary carrier
-- Free shipping at €75 threshold
-- Free returns (table stakes for German market)
-- Show estimated delivery dates, not "3–5 business days"
-
-### Trust Signals
-- Trusted Shops seal
-- Verified purchase reviews (Loox or Judge.me)
-- Visible phone number / contact form
-- Detailed product descriptions (German consumers research before buying)
-- "Model is 175cm, wearing size 38" on every product
-
----
-
-## UX Principles
-
-- **Navigation**: Transparent sticky header → `#FAF7F2` on scroll; desktop mega menu; **mobile bottom tab nav** (outperforms hamburger menus)
-- **Cart**: Slide-out drawer from right — never redirect to cart page
-- **Popups**: Max one newsletter popup per session (30s delay or exit intent)
-- **Wishlist**: Cookie-based (no login needed), prompt to save permanently with account
-- **Animations**: Gentle 200ms fade-up on sections, product image crossfade on hover
-- **No aggressive interactions**: no forced redirects, no instant popups
-
-### Responsive Breakpoints
-| Breakpoint | Width | Notes |
-|-----------|-------|-------|
-| Mobile | < 768px | Bottom tab nav, 2-col product grid, 48px touch targets |
-| Tablet | 768–1024px | 3-col product grid |
-| Desktop | 1025–1440px | Full mega menu, 3–4 col grid |
-| Wide | > 1440px | Max-width container 1440px, centered |
-
-### Accessibility (WCAG AA)
-- All text meets 4.5:1 contrast ratio
-- Minimum body text 16px
-- Minimum touch targets 48×48px on mobile
-- Alt text on all images (both DE and EN)
-- Keyboard navigable throughout
-- Screen reader compatible navigation and forms
-
-### Performance Targets
-| Metric | Target |
-|--------|--------|
-| Largest Contentful Paint | < 2.5s |
-| First Input Delay | < 100ms |
-| Cumulative Layout Shift | < 0.1 |
-| Hero image size | < 300KB (WebP) |
-| Product images | 1200×1600px, 3:4 ratio |
-
----
-
-## Shopify Implementation
-
-### Recommended Theme
-**Prestige** by Maestrooo (~$350) — built for premium fashion brands with superior editorial layout capabilities. Dawn (free) is a fallback if budget is a constraint.
-
-### Essential Apps
-| App | Purpose |
-|-----|---------|
-| Shopify Translate & Adapt | DE/EN multilingual |
-| Klarna Payments | Buy Now Pay Later |
-| Kiwi Size Chart | Visual size guides (reduces returns ~25%) |
-| Loox or Judge.me | Photo reviews with verified badges |
-| Klaviyo | Email marketing and newsletter flows |
-| Trusted Shops | German market trust seal |
-| Shopify Markets | Multi-currency and EU tax handling |
-
-### Launch Checklist
-- [ ] 15–25 products (one full capsule collection)
-- [ ] 4–6 lifestyle/editorial photos per product
-- [ ] Fabric detail close-up shot per product
-- [ ] Brand story page (DE + EN)
-- [ ] Sustainability / materials information page
-- [ ] All legal pages (Impressum, AGB, Datenschutz, Widerruf)
-- [ ] Size guide with DE/EU conversions and garment measurements
-- [ ] "Model is Xcm, wearing size XX" on every product
-- [ ] Cookie consent banner (GDPR compliant)
-- [ ] All payment methods tested in Shopify test mode
-- [ ] Lighthouse audit — target 90+ across all metrics
-- [ ] German copy reviewed by native speaker
-- [ ] Cross-browser test (Chrome, Firefox, Safari, Edge — desktop + mobile)
-
----
-
-## Market Research Summary
-
-Key findings informing TARA's strategy:
-
-- **Market size**: European fashion e-commerce USD 125.68B (2025), growing at 4.25% CAGR
-- **Cotton**: Holds 40.35% market share in European apparel — performs best in premium/sustainable segments
-- **Underserved segment**: Women 45–60 control 80% of UK wealth and spend £7B/year on clothing — largely ignored by fashion brands
-- **Sustainability nuance**: 63% say it matters, only 17% pay a premium — certifications as trust signals, not price justification
-- **Germany**: Europe's largest fashion e-commerce market; 44% return rate driven by sizing — size tools are critical
-- **Slow fashion**: Capsule wardrobe mentality is mainstream across Europe — fewer, better pieces
-
-Full research documents in `TARA_Market_Research_Report.md`, `European_Women_ICP_Research.md`, and `European_Cotton_Brands_Research.md`.
-
----
-
-## Photography Direction
-
-- **Lighting**: Soft, diffused natural light — warm golden tone, never clinical/cool
-- **Models**: Include women aged 35–55, natural makeup, relaxed poses
-- **Settings**: Parisian-inspired — café terraces, morning window light, linen interiors
-- **Fabric**: Show cotton texture, natural wrinkles allowed (signals authenticity)
-- **Color grading**: Warm, slightly desaturated — matches cream/blush palette
-- **Format**: WebP primary, JPEG fallback, alt text in both DE and EN
-
----
-
-## Contributing
-
-This is a private brand project. For design or development contributions, refer to `CLAUDE.md` for full project context and conventions.
+If you are hiring for **frontend engineering**, **product-minded UI work**, or **prototype-to-production ecommerce execution**, reach me at [deepakp.tvla@gmail.com](mailto:deepakp.tvla@gmail.com), [LinkedIn](https://www.linkedin.com/in/deepakpk/), or [GitHub](https://github.com/deepakpk-dev).
