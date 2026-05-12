@@ -915,7 +915,8 @@
 }
 
 .cert-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: flex-start;
   gap: var(--space-md);
   padding: var(--space-lg);
@@ -933,10 +934,15 @@
   min-width: 80px;
 }
 
+.cert-card > div:last-child {
+  min-width: 0;
+}
+
 .cert-card h3 {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   color: var(--color-heading);
+  line-height: 1.2;
   margin-bottom: 0.25rem;
 }
 
