@@ -1,67 +1,22 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ locale | default('de') }}">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ description }}">
-  <meta property="og:site_name" content="{{ site.brand.name }}">
-  <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ description }}">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="/images/tara/hero-lumiere-douce.jpg">
-  <title>{{ title }}</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/css/variables.css">
-  <link rel="stylesheet" href="/css/base.css">
-  <link rel="stylesheet" href="/css/components.css">
-  <link rel="stylesheet" href="/css/pages.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link rel="stylesheet" href="/css/cookie.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="{{ description }}">
+  <meta property="og:site_name" content="{{ site.brand.name }}"><meta property="og:title" content="{{ title }}"><meta property="og:description" content="{{ description }}"><meta property="og:type" content="website"><meta property="og:image" content="/images/tara/hero-lumiere-douce.jpg"><title>{{ title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/variables.css"><link rel="stylesheet" href="/css/base.css"><link rel="stylesheet" href="/css/components.css"><link rel="stylesheet" href="/css/pages.css"><link rel="stylesheet" href="/css/responsive.css"><link rel="stylesheet" href="/css/cookie.css">
 </head>
 <body class="{{ bodyClass }}">
-
+<a class="skip-link" href="#main-content">{% if locale == 'en' %}Skip to content{% else %}Zum Inhalt springen{% endif %}</a>
 {% include "header.njk" %}
-
-{{ content | safe }}
-
+<main id="main-content">{{ content | safe }}</main>
 {% include "footer.njk" %}
-
-{% include "search-overlay.njk" %}
-{% include "wishlist-drawer.njk" %}
-{% include "cart-drawer.njk" %}
-{% include "cookie-banner.njk" %}
-
-<nav class="bottom-nav" aria-label="Mobile Navigation">
-  <a href="/" class="bottom-nav__item{% if page.url == "/" %} bottom-nav__item--active{% endif %}">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    <span class="bottom-nav__label">Start</span>
-  </a>
-  <a href="/collection/" class="bottom-nav__item{% if page.url == "/collection/" %} bottom-nav__item--active{% endif %}">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/><line x1="2" y1="8" x2="22" y2="8"/><line x1="2" y1="16" x2="22" y2="16"/></svg>
-    <span class="bottom-nav__label">Shop</span>
-  </a>
-  <button type="button" class="bottom-nav__item" id="bottomNavWishlist">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-    <span class="bottom-nav__label">Wunschliste</span>
-  </button>
-  <button type="button" class="bottom-nav__item" id="bottomNavCart">
-    <span class="bottom-nav__cart-badge">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-      <span class="bottom-nav__cart-count">0</span>
-    </span>
-    <span class="bottom-nav__label">Warenkorb</span>
-  </button>
-  <button type="button" class="bottom-nav__item" data-static-feature="account">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    <span class="bottom-nav__label">Konto</span>
-  </button>
+{% include "search-overlay.njk" %}{% include "wishlist-drawer.njk" %}{% include "cart-drawer.njk" %}{% include "cookie-banner.njk" %}
+<dialog id="accountDialog" class="demo-dialog" aria-labelledby="accountDialogTitle"><button class="cart-drawer__close" id="accountClose" aria-label="{% if locale == 'en' %}Close{% else %}Schließen{% endif %}">×</button><h2 id="accountDialogTitle">{% if locale == 'en' %}Account features are not connected{% else %}Kontofunktionen sind nicht verbunden{% endif %}</h2><p>{% if locale == 'en' %}This portfolio prototype does not collect account details or show orders. Your wishlist is stored only in this browser.{% else %}Dieses Portfolio-Prototyp erfasst keine Kontodaten und zeigt keine Bestellungen. Ihre Wunschliste wird nur in diesem Browser gespeichert.{% endif %}</p></dialog>
+<dialog id="demoCheckoutDialog" class="demo-dialog" aria-labelledby="demoCheckoutTitle"><button class="cart-drawer__close" id="demoCheckoutClose" aria-label="{% if locale == 'en' %}Close{% else %}Schließen{% endif %}">×</button><h2 id="demoCheckoutTitle">{% if locale == 'en' %}Checkout is a demo endpoint{% else %}Checkout ist ein Demo-Endpunkt{% endif %}</h2><p>{% if locale == 'en' %}No order, payment, address or personal data is collected. A live TARA store would continue to a Shopify checkout here.{% else %}Es werden keine Bestellung, Zahlung, Adresse oder personenbezogene Daten erfasst. Ein Live-Shop würde hier zum Shopify-Checkout weiterleiten.{% endif %}</p></dialog>
+<dialog id="galleryDialog" class="gallery-dialog" aria-label="{% if locale == 'en' %}Enlarged product image{% else %}Vergrößertes Produktbild{% endif %}"><button class="cart-drawer__close" id="galleryClose" aria-label="{% if locale == 'en' %}Close{% else %}Schließen{% endif %}">×</button><img id="galleryImage" alt=""></dialog>
+<nav class="bottom-nav" aria-label="{% if locale == 'en' %}Mobile navigation{% else %}Mobile Navigation{% endif %}">
+  <a href="{{ localePrefix | default('') }}/" class="bottom-nav__item"><span class="bottom-nav__label">{% if locale == 'en' %}Home{% else %}Start{% endif %}</span></a><a href="{{ localePrefix | default('') }}/collection/" class="bottom-nav__item"><span class="bottom-nav__label">Shop</span></a><button type="button" class="bottom-nav__item" id="bottomNavWishlist"><span class="bottom-nav__label">{% if locale == 'en' %}Saved{% else %}Merkliste{% endif %}</span></button><button type="button" class="bottom-nav__item" id="bottomNavCart"><span class="bottom-nav__cart-badge"><span class="bottom-nav__cart-count">0</span></span><span class="bottom-nav__label">{% if locale == 'en' %}Bag{% else %}Warenkorb{% endif %}</span></button><button type="button" class="bottom-nav__item" id="bottomNavAccount"><span class="bottom-nav__label">{% if locale == 'en' %}Account{% else %}Konto{% endif %}</span></button>
 </nav>
-
-<script src="/js/main.js"></script>
-<script src="/js/cookie.js"></script>
-</body>
-</html>
+<script id="tara-products" type="application/json">{{ products | dump | safe }}</script><script src="/js/commerce-core.js"></script><script src="/js/main.js"></script><script src="/js/cookie.js"></script>
+</body></html>

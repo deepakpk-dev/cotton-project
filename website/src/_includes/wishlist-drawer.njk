@@ -1,14 +1,1 @@
-<div class="wishlist-drawer" id="wishlistDrawer" role="dialog" aria-modal="true" aria-labelledby="wishlistTitle">
-  <div class="cart-drawer__header">
-    <h3 class="cart-drawer__title" id="wishlistTitle">Wunschliste</h3>
-    <button class="cart-drawer__close" id="wishlistClose" aria-label="Wunschliste schließen">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-  </div>
-  <div class="cart-drawer__body">
-    <div class="cart-drawer__empty">
-      <p>Ihre Wunschliste ist leer</p>
-      <a href="/collection/" class="btn btn--primary">Kollektion entdecken</a>
-    </div>
-  </div>
-</div>
+<aside class="wishlist-drawer" id="wishlistDrawer" aria-labelledby="wishlistTitle"><div class="cart-drawer__header"><h2 class="cart-drawer__title" id="wishlistTitle">{% if locale == 'en' %}Saved pieces{% else %}Gemerkte Stücke{% endif %}</h2><button class="cart-drawer__close" id="wishlistClose" aria-label="{% if locale == 'en' %}Close saved pieces{% else %}Merkliste schließen{% endif %}">×</button></div><div class="cart-drawer__body"><div class="cart-drawer__empty" id="wishlistEmptyState"><p>{% if locale == 'en' %}Nothing saved yet.{% else %}Noch keine Stücke gemerkt.{% endif %}</p><a href="{{ localePrefix | default('') }}/collection/" class="btn btn--primary">{% if locale == 'en' %}Explore the collection{% else %}Kollektion entdecken{% endif %}</a></div><div id="wishlistItems"></div></div></aside>
