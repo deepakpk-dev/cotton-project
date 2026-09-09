@@ -1,14 +1,14 @@
 # TARA
 
-> A frontend portfolio case study by Deepak: an editorial ecommerce prototype for a Germany-first cotton fashion brand.
+> A performance-marketing and ecommerce portfolio case study by Deepak for a fictional Germany-first cotton fashion brand.
 
 [![Eleventy](https://img.shields.io/badge/Eleventy-3.1.5-222222?style=flat-square)](https://www.11ty.dev/)
 ![Nunjucks](https://img.shields.io/badge/Nunjucks-Templates-3D3633?style=flat-square)
 ![Frontend](https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-C4A08A?style=flat-square)
-![Focus](https://img.shields.io/badge/Focus-UX%20%2B%20Product%20Thinking-9BAF93?style=flat-square)
+![Focus](https://img.shields.io/badge/Focus-Performance%20Marketing%20%2B%20Ecommerce-9BAF93?style=flat-square)
 ![Market](https://img.shields.io/badge/Market-Germany%20First-E8E0D8?style=flat-square)
 
-This repo is a portfolio case study for **TARA**, a fictional accessible-premium cotton clothing brand designed for women aged 35-55 in Germany. I built it to show how I think about **frontend execution, UX clarity, trust-building, and market-aware product decisions** when the goal is not just a pretty landing page, but a credible ecommerce experience.
+This repo is a portfolio case study for **TARA**, a fictional accessible-premium cotton clothing brand designed for women aged 35-55 in Germany. It demonstrates how I connect **market research, ecommerce UX, paid social and display strategy, creative testing, measurement, and optimisation** into one credible growth story.
 
 **Built by:** Deepak (`deepakpk-dev`)  
 **GitHub:** [deepakpk-dev](https://github.com/deepakpk-dev)  
@@ -19,12 +19,16 @@ This repo is a portfolio case study for **TARA**, a fictional accessible-premium
 
 [View the live deployment](https://cotton-project-eta.vercel.app/)
 
+[View the performance marketing case study](https://cotton-project-eta.vercel.app/case-study/)
+
 ## 30-Second Read
 
 - I designed and built a multi-page fashion ecommerce prototype with **Eleventy, Nunjucks, vanilla JavaScript, and a token-based CSS system**.
+- I added a recruiter-facing **performance marketing case study** covering paid social, display, audience strategy, creative testing, measurement, and optimisation decisions.
 - I treated the brief like a real market problem, not a gallery mockup: German legal surfaces, payment expectations, shipping cues, trust signals, readability for an older audience, and GDPR-aware interactions all shaped the interface.
-- I used the project to demonstrate **decision-making**, especially where product strategy and frontend implementation meet.
+- I used the project to demonstrate **decision-making** from customer research through storefront execution and acquisition strategy.
 - This is **production-minded**, but still clearly a **prototype**. The repo documents what is working today and what would need to change before launch.
+- The performance data is clearly labelled **illustrative**; it is not client, employer, or live campaign performance.
 
 ## What I Owned
 
@@ -34,6 +38,7 @@ I owned the project end-to-end:
 - Research synthesis from ICP, competitor, and market documents into concrete UX choices
 - Information architecture for homepage, collection, product, editorial, materials, size-guide, and legal flows
 - Frontend implementation using reusable Eleventy templates, centralized data, CSS tokens, and vanilla JavaScript interactions
+- Paid social and display funnel strategy, creative-testing hypotheses, KPI definitions, and optimisation recommendations
 - Prototype realism details such as cookie consent, cart drawer behavior, wishlist persistence, shipping/tax copy, and German launch requirements
 
 ## Why This Is Strong Portfolio Material
@@ -47,11 +52,11 @@ I owned the project end-to-end:
 
 | Area | Summary |
 | --- | --- |
-| Project Type | Frontend portfolio case study |
+| Project Type | Ecommerce and performance-marketing portfolio case study |
 | Domain | Fashion ecommerce |
 | Market | Germany-first, bilingual-ready |
 | Stack | Eleventy 3, Nunjucks, vanilla JavaScript, CSS variables |
-| What It Proves | Product judgment, UX systems thinking, frontend craft, implementation discipline |
+| What It Proves | Audience strategy, paid-social and display thinking, creative testing, measurement, product judgment, and frontend craft |
 | Prototype Scope | Editorial storefront, collection browsing, product detail flow, legal pages, consent, cart drawer, wishlist |
 
 ## My Key Decisions
@@ -119,13 +124,12 @@ cotton-project/
 
 ## Review This Repo Fast
 
-If you only have a few minutes, review these files:
+If you only have a few minutes, start with [the live marketing case study](https://cotton-project-eta.vercel.app/case-study/) and then review these files:
 
-- [README.md](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/README.md)
-- [docs/TARA_Portfolio_Case_Study.md](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/docs/TARA_Portfolio_Case_Study.md)
-- [website/src/index.njk](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/website/src/index.njk)
-- [website/src/product.njk](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/website/src/product.njk)
-- [website/src/_data/site.js](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/website/src/_data/site.js)
+- [docs/TARA_Performance_Marketing_Case_Study.md](docs/TARA_Performance_Marketing_Case_Study.md)
+- [website/src/performance-case-study.njk](website/src/performance-case-study.njk)
+- [website/src/_data/performanceCaseStudy.js](website/src/_data/performanceCaseStudy.js)
+- [docs/TARA_Portfolio_Case_Study.md](docs/TARA_Portfolio_Case_Study.md)
 
 ## Run Locally
 
@@ -151,12 +155,14 @@ This repo is intentionally honest about scope:
 - The legal identity and company fields are fictional prototype data
 - The cart, wishlist, newsletter, and consent flows are frontend prototype behavior, not production integrations
 - The storefront is static and not yet connected to Shopify, payments, fulfillment, or a live review system
+- The marketing page uses scenario-based, illustrative metrics only; it makes no claim of live campaign execution or performance
 - The project is meant to show **how I think and build**, while still documenting what real launch work remains
 
 See:
 
-- [docs/TARA_Portfolio_Case_Study.md](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/docs/TARA_Portfolio_Case_Study.md)
-- [docs/TARA_Launch_QA_Checklist.md](C:/Users/revat/OneDrive/Desktop/Agentic engineering/Cotton Project/docs/TARA_Launch_QA_Checklist.md)
+- [docs/TARA_Performance_Marketing_Case_Study.md](docs/TARA_Performance_Marketing_Case_Study.md)
+- [docs/TARA_Portfolio_Case_Study.md](docs/TARA_Portfolio_Case_Study.md)
+- [docs/TARA_Launch_QA_Checklist.md](docs/TARA_Launch_QA_Checklist.md)
 
 ## What I Would Do Next
 
@@ -175,4 +181,4 @@ See:
 
 ## Contact
 
-If you are hiring for **frontend engineering**, **product-minded UI work**, or **prototype-to-production ecommerce execution**, reach me at [deepakp.tvla@gmail.com](mailto:deepakp.tvla@gmail.com), [LinkedIn](https://www.linkedin.com/in/deepakpk/), or [GitHub](https://github.com/deepakpk-dev).
+If you are hiring for **performance marketing**, **paid social**, **display**, **ecommerce growth**, or **product-minded frontend work**, reach me at [deepakp.tvla@gmail.com](mailto:deepakp.tvla@gmail.com), [LinkedIn](https://www.linkedin.com/in/deepakpk/), or [GitHub](https://github.com/deepakpk-dev).

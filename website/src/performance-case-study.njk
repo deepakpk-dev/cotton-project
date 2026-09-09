@@ -1,0 +1,135 @@
+---
+layout: base.njk
+title: "Performance Marketing Case Study | TARA"
+description: "A scenario-based paid social, display, creative testing, and measurement case study for TARA, a fictional Germany-first cotton fashion brand."
+bodyClass: "page-case-study"
+permalink: /case-study/
+---
+
+<main class="case-study">
+  <section class="case-study__hero">
+    <div class="container case-study__hero-inner">
+      <p class="case-study__eyebrow">TARA / Portfolio Case Study</p>
+      <h1>Performance marketing for a trust-first fashion launch.</h1>
+      <p class="case-study__lead">How I would plan, test, measure, and optimise a Germany-first paid social and display launch for TARA's Spring / Summer collection.</p>
+      <p class="case-study__disclaimer">{{ performanceCaseStudy.disclaimer }}</p>
+      <dl class="case-study__brief-grid">
+        <div><dt>Market</dt><dd>{{ performanceCaseStudy.brief.market }}</dd></div>
+        <div><dt>Scenario</dt><dd>{{ performanceCaseStudy.brief.timeframe }}</dd></div>
+        <div><dt>Primary conversion</dt><dd>{{ performanceCaseStudy.brief.primaryConversion }}</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="case-study__section">
+    <div class="container case-study__reading-grid">
+      <div>
+        <p class="case-study__eyebrow">The brief</p>
+        <h2>Validate first-purchase acquisition without losing the brand's premium calm.</h2>
+      </div>
+      <p class="case-study__body">{{ performanceCaseStudy.brief.primaryGoal }} The approach connects the storefront's existing strengths—clear German trust signals, product detail, delivery context, and a premium editorial tone—to an acquisition plan that has explicit hypotheses and decision rules.</p>
+    </div>
+  </section>
+
+  <section class="case-study__section case-study__section--tinted">
+    <div class="container">
+      <p class="case-study__eyebrow">Audience strategy</p>
+      <h2>Messages are anchored in the shopper's purchase question.</h2>
+      <div class="case-study__card-grid">
+        {% for audience in performanceCaseStudy.audiences %}
+          <article class="case-study__card">
+            <p class="case-study__card-label">{{ audience.age }}</p>
+            <h3>{{ audience.name }}</h3>
+            <p><strong>Need:</strong> {{ audience.need }}</p>
+            <p><strong>Message:</strong> {{ audience.message }}</p>
+            <p><strong>Proof:</strong> {{ audience.proof }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study__section">
+    <div class="container">
+      <p class="case-study__eyebrow">Channel roles</p>
+      <h2>Each channel has a defined job in the funnel.</h2>
+      <div class="case-study__table-wrap">
+        <table class="case-study__table">
+          <thead><tr><th>Funnel role</th><th>Channel</th><th>Job to be done</th></tr></thead>
+          <tbody>
+            {% for channel in performanceCaseStudy.channelRoles %}
+              <tr><td>{{ channel.stage }}</td><td>{{ channel.channels }}</td><td>{{ channel.role }}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study__section case-study__section--image">
+    <div class="container case-study__creative-layout">
+      <div>
+        <p class="case-study__eyebrow">Creative testing</p>
+        <h2>Turn the existing visual system into testable acquisition concepts.</h2>
+        <p class="case-study__body">The storefront's imagery is the starting point, not the final asset. Each direction is designed to answer a different shopper question and can be tested without changing audience, budget, landing page, or optimisation event.</p>
+      </div>
+      <div class="case-study__creative-grid">
+        {% for creative in performanceCaseStudy.creativeAngles %}
+          <article><h3>{{ creative.title }}</h3><p>{{ creative.description }}</p></article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study__section">
+    <div class="container">
+      <p class="case-study__eyebrow">Measurement plan</p>
+      <h2>Measure the full path, not just the final click.</h2>
+      <div class="case-study__kpi-path" aria-label="Measurement path">
+        <span>Spend</span><span>Impressions</span><span>Clicks</span><span>Product views</span><span>Add to carts</span><span>Checkouts</span><span>Purchases</span><span>Revenue</span>
+      </div>
+      <p class="case-study__note">CTR = clicks ÷ impressions · CPC = spend ÷ clicks · CPA = spend ÷ purchases · ROAS = revenue ÷ spend. Production tracking would only activate after appropriate consent; this prototype does not claim live analytics implementation.</p>
+    </div>
+  </section>
+
+  <section class="case-study__section case-study__section--tinted">
+    <div class="container">
+      <p class="case-study__eyebrow">Illustrative performance scenario</p>
+      <h2>Six weeks of simulated campaign data.</h2>
+      <p class="case-study__disclaimer case-study__disclaimer--inline">Illustrative data only—shown to demonstrate analysis and optimisation thinking, not past client or employer performance.</p>
+      <div class="case-study__table-wrap">
+        <table class="case-study__table case-study__table--metrics">
+          <thead><tr><th>Campaign</th><th>Spend</th><th>Purchases</th><th>CPA</th><th>Revenue</th><th>ROAS</th></tr></thead>
+          <tbody>
+            {% for campaign in performanceCaseStudy.campaigns %}
+              <tr><td><strong>{{ campaign.channel }}</strong><span>{{ campaign.creative }}</span></td><td>{{ campaign.metrics.spendFormatted }}</td><td>{{ campaign.metrics.purchases }}</td><td>{{ campaign.metrics.cpa }}</td><td>{{ campaign.metrics.revenueFormatted }}</td><td>{{ campaign.metrics.roas }}</td></tr>
+            {% endfor %}
+          </tbody>
+          <tfoot><tr><td>Total</td><td>{{ performanceCaseStudy.totals.spendFormatted }}</td><td>{{ performanceCaseStudy.totals.purchases }}</td><td>{{ performanceCaseStudy.totals.cpa }}</td><td>{{ performanceCaseStudy.totals.revenueFormatted }}</td><td>{{ performanceCaseStudy.totals.roas }}</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study__section">
+    <div class="container">
+      <p class="case-study__eyebrow">Experiment roadmap</p>
+      <h2>Decisions follow pre-defined tests, not assumptions.</h2>
+      <div class="case-study__experiment-list">
+        {% for experiment in performanceCaseStudy.experiments %}
+          <article class="case-study__experiment">
+            <h3>{{ experiment.hypothesis }}</h3>
+            <dl><div><dt>Variable</dt><dd>{{ experiment.variable }}</dd></div><div><dt>Keep constant</dt><dd>{{ experiment.constant }}</dd></div><div><dt>Decision rule</dt><dd>{{ experiment.decisionRule }}</dd></div></dl>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-study__section case-study__section--closing">
+    <div class="container case-study__reading-grid">
+      <div><p class="case-study__eyebrow">Optimisation perspective</p><h2>What I would do next.</h2></div>
+      <ol class="case-study__decision-list">{% for decision in performanceCaseStudy.optimisationDecisions %}<li>{{ decision }}</li>{% endfor %}</ol>
+    </div>
+  </section>
+</main>
