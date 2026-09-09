@@ -13,7 +13,7 @@
   z-index: var(--z-modal);
   transform: translateY(100%);
   transition: transform var(--transition-slow);
-  box-shadow: 0 -4px 24px rgba(44, 34, 32, 0.08);
+  box-shadow: var(--shadow-cookie);
 }
 
 .cookie-banner.is-visible {
@@ -84,13 +84,13 @@
 
 .cookie-banner__category label input[disabled] {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .cookie-banner__category p {
   font-size: var(--text-small);
   color: var(--color-text);
-  opacity: 0.6;
+  opacity: 1;
   padding-left: 24px;
 }
 
@@ -127,4 +127,23 @@
     flex-direction: row;
     min-width: unset;
   }
+}
+
+/* Compact consent summary; expanded options remain scrollable at enlarged text. */
+.cookie-banner { max-height: min(75dvh, 560px); overflow-y: auto; overscroll-behavior: contain; text-align: left; }
+.cookie-banner__inner { grid-template-columns: minmax(0, 1fr) minmax(180px, auto); }
+.cookie-banner__body, .cookie-banner__actions { min-width: 0; }
+.cookie-banner__category p { color: var(--color-text-muted); }
+.cookie-banner__category label { min-height: 48px; }
+.cookie-banner__category label input[type="checkbox"] { width: 24px; height: 24px; flex-shrink: 0; accent-color: var(--color-link); }
+.cookie-banner__actions .btn { white-space: normal; font-size: 0.875rem; min-height: 48px; }
+.cookie-banner__details { margin-top: var(--space-xs); }
+.cookie-banner__details summary { min-height: 48px; display: flex; align-items: center; cursor: pointer; color: var(--color-link); text-decoration: underline; }
+@media (max-width: 768px) {
+  .cookie-banner { padding: var(--space-sm); }
+  .cookie-banner__inner { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+  .cookie-banner__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: var(--space-xs); }
+  .cookie-banner__actions .btn:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .cookie-banner__categories { gap: var(--space-xs); }
+  .cookie-banner__text { font-size: 1rem; }
 }

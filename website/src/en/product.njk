@@ -4,10 +4,10 @@ pagination:
   data: products
   size: 1
   alias: product
-permalink: "/product/{{ product.id }}/index.html"
+permalink: "/en/product/{{ product.id }}/index.html"
 eleventyComputed:
-  title: "{{ product.nameEn if locale == 'en' else product.name }} — TARA"
-  description: "{{ product.descriptionEn if locale == 'en' else product.description }}"
+  title: "{{ product.nameEn }} — TARA"
+  description: "{{ product.descriptionEn }}"
 bodyClass: page-product
 ---
 <div class="container"><nav class="breadcrumbs" aria-label="{% if locale == 'en' %}Breadcrumb{% else %}Brotkrümelnavigation{% endif %}"><a href="{{ localePrefix }}/">{% if locale == 'en' %}Home{% else %}Start{% endif %}</a><span>/</span><a href="{{ localePrefix }}/collection/">Lumière Douce</a><span>/</span>{% if locale == 'en' %}{{ product.nameEn }}{% else %}{{ product.name }}{% endif %}</nav></div>

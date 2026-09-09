@@ -1,7 +1,7 @@
 module.exports = {
   brand: {
     name: "TARA",
-    legalName: "TARA Cotton GmbH",
+    legalName: "TARA Portfolio-Prototyp",
     tagline: "Zeitlose Baumwollkleidung in kuratierten Kapseln",
     locale: "de-DE",
     currency: "EUR"
@@ -10,17 +10,7 @@ module.exports = {
     isFictional: true,
     replacementRequired: true,
     replacementNotice: "Fictional launch prototype data. Replace with verified legal company details before launch.",
-    street: "Rue de la Cotonnerie 12",
-    postalCode: "20354",
-    city: "Hamburg",
-    country: "Deutschland",
-    phone: "+49 40 2286 4190",
-    email: "bonjour@tara-cotton.de",
-    managingDirector: "Elise Martin",
-    registerCourt: "Amtsgericht Hamburg",
-    registerNumber: "HRB 184752",
-    vatId: "DE348729615",
-    economicId: "48/742/01938"
+    legalDetailsStatus: "Replace with verified legal entity details before launch."
   },
   commerce: {
     freeShippingThreshold: 75,

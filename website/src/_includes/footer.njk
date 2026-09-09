@@ -1,74 +1,12 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
-      <div>
-        <p class="footer__brand-name">TARA</p>
-        <p class="footer__brand-text">
-          Exklusive Baumwollkleidung in kuratierten Kapsulkollektionen. Zeitloses Design, gefertigt für Frauen, die Qualität und mühelose Eleganz schätzen.
-        </p>
-      </div>
-
-      <div>
-        <h4 class="footer__heading">Shop</h4>
-        <div class="footer__links">
-          <a href="/collection/">Neue Kollektion</a>
-          <a href="/collection/">Kleider</a>
-          <a href="/collection/">Blusen &amp; Tops</a>
-          <a href="/collection/">Hosen</a>
-          <a href="/collection/">Strickwaren</a>
-          <a href="/collection/">Alle Produkte</a>
-        </div>
-      </div>
-
-      <div>
-        <h4 class="footer__heading">Über uns</h4>
-        <div class="footer__links">
-          <a href="/brand-story/">Unsere Geschichte</a>
-          <a href="/materials/">Materialien &amp; Nachhaltigkeit</a>
-          <a href="/collection/">Journal</a>
-        </div>
-      </div>
-
-      <div>
-        <h4 class="footer__heading">Kundenservice</h4>
-        <div class="footer__links">
-          <a href="mailto:{{ site.company.email }}">{{ site.company.email }}</a>
-          <a href="tel:{{ site.company.phone | replace(' ', '') }}">{{ site.company.phone }}</a>
-          <a href="/size-guide/">Größenberatung</a>
-          <a href="/legal/widerruf/">Rückgabe &amp; Umtausch</a>
-        </div>
-      </div>
+      <div><p class="footer__brand-name">TARA</p><p class="footer__brand-text">{% if locale == 'en' %}An accessible-premium cotton brand concept, designed as a frontend portfolio prototype.{% else %}Ein Konzept für eine zugängliche Premium-Baumwollmarke, gestaltet als Frontend-Portfolio-Prototyp.{% endif %}</p></div>
+      <div><h2 class="footer__heading">Shop</h2><div class="footer__links"><a href="{{ localePrefix | default('') }}/collection/">{% if locale == 'en' %}Collection{% else %}Kollektion{% endif %}</a><a href="{{ localePrefix | default('') }}/collection/?category=Kleider">{% if locale == 'en' %}Dresses{% else %}Kleider{% endif %}</a><a href="{{ localePrefix | default('') }}/collection/?category=Hosen">{% if locale == 'en' %}Trousers{% else %}Hosen{% endif %}</a></div></div>
+      <div><h2 class="footer__heading">{% if locale == 'en' %}About{% else %}Über TARA{% endif %}</h2><div class="footer__links"><a href="{{ localePrefix | default('') }}/brand-story/">{% if locale == 'en' %}Brand concept{% else %}Markenkonzept{% endif %}</a><a href="{{ localePrefix | default('') }}/materials/">{% if locale == 'en' %}Materials approach{% else %}Materialansatz{% endif %}</a><a href="{{ localePrefix | default('') }}/size-guide/">{% if locale == 'en' %}Size guide{% else %}Größenberatung{% endif %}</a></div></div>
+      <div><h2 class="footer__heading">{% if locale == 'en' %}Prototype notice{% else %}Prototyp-Hinweis{% endif %}</h2><p>{% if locale == 'en' %}No orders, payments, subscriptions or support requests are processed here.{% else %}Hier werden keine Bestellungen, Zahlungen, Abonnements oder Supportanfragen verarbeitet.{% endif %}</p></div>
     </div>
-
-    <p class="footer__trust-line">
-      {{ site.commerce.shippingCarrier }} Versand &middot; {{ site.commerce.returnWindow }} &middot; {{ site.payments | join(" · ") }}
-    </p>
-
-    <div class="footer__bottom">
-      <div class="footer__copyright footer__legal-links">
-        &copy; 2026 TARA. Alle Rechte vorbehalten.
-        &nbsp;&bull;&nbsp; <a href="/legal/impressum/">Impressum</a>
-        &nbsp;&bull;&nbsp; <a href="/legal/datenschutz/">Datenschutz</a>
-        &nbsp;&bull;&nbsp; <a href="/legal/agb/">AGB</a>
-        &nbsp;&bull;&nbsp; <a href="/legal/widerruf/">Widerrufsrecht</a>
-        &nbsp;&bull;&nbsp; <a href="#" id="cookieSettingsLink">Cookie-Einstellungen</a>
-      </div>
-      <div class="footer__certifications">
-        <span class="footer__cert-badge">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          OEKO-TEX&reg;
-        </span>
-        <span class="footer__cert-badge">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-          GOTS
-        </span>
-      </div>
-      <div class="footer__payments">
-        <span class="footer__payment-icon">PayPal</span>
-        <span class="footer__payment-icon">Klarna</span>
-        <span class="footer__payment-icon">Visa</span>
-        <span class="footer__payment-icon">SEPA</span>
-      </div>
-    </div>
+    <p class="footer__trust-line">{% if locale == 'en' %}Planned for a live store: DHL delivery in Germany, free returns, Klarna, PayPal, SEPA and cards.{% else %}Für einen Live-Shop geplant: DHL-Versand in Deutschland, kostenlose Rückgabe, Klarna, PayPal, SEPA und Karten.{% endif %}</p>
+    <div class="footer__bottom"><div class="footer__copyright footer__legal-links">© 2026 TARA · {% if locale == 'en' %}Fictional portfolio prototype{% else %}Fiktiver Portfolio-Prototyp{% endif %}<br><a href="/legal/impressum/">Impressum</a> · <a href="/legal/datenschutz/">Datenschutz</a> · <a href="/legal/agb/">AGB</a> · <a href="/legal/widerruf/">{% if locale == 'en' %}Withdrawal information{% else %}Widerrufsbelehrung{% endif %}</a> · <a href="#" id="cookieSettingsLink">{% if locale == 'en' %}Cookie settings{% else %}Cookie-Einstellungen{% endif %}</a></div></div>
   </div>
 </footer>

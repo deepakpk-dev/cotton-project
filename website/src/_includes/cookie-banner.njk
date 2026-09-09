@@ -1,25 +1,28 @@
-<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie-Einstellungen" aria-modal="true">
+<aside class="cookie-banner" id="cookieBanner" aria-label="{% if locale == 'en' %}Cookie settings{% else %}Cookie-Einstellungen{% endif %}">
   <div class="cookie-banner__inner">
     <div class="cookie-banner__body">
-      <p class="cookie-banner__title">Cookie-Einstellungen</p>
+      <p class="cookie-banner__title">{% if locale == 'en' %}Cookie settings{% else %}Cookie-Einstellungen{% endif %}</p>
       <p class="cookie-banner__text">
-        Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. Lesen Sie mehr in unserer <a href="/legal/datenschutz/">Datenschutzerklärung</a>.
+        {% if locale == 'en' %}We use optional cookies only when you choose them. Read the German privacy policy for this fictional prototype in our <a href="/legal/datenschutz/">privacy policy</a>.{% else %}Wir verwenden optionale Cookies nur, wenn Sie sie auswählen. Mehr dazu in unserer <a href="/legal/datenschutz/">Datenschutzerklärung</a>.{% endif %}
       </p>
-      <div class="cookie-banner__categories">
-        {% for category in site.cookies.categories %}
-        <div class="cookie-banner__category">
-          <label for="cookie{{ category.id | capitalize }}">
-            <input type="checkbox" id="cookie{{ category.id | capitalize }}" data-cookie-category="{{ category.id }}"{% if category.required %} checked disabled{% endif %}>
-            <span>{{ category.label }}</span>
-          </label>
-          <p>{{ category.description }}</p>
+      <details class="cookie-banner__details">
+        <summary>{% if locale == 'en' %}Choose cookie categories{% else %}Cookie-Kategorien auswählen{% endif %}</summary>
+        <div class="cookie-banner__categories">
+          {% for category in site.cookies.categories %}
+          <div class="cookie-banner__category">
+            <label for="cookie{{ category.id | capitalize }}">
+              <input type="checkbox" id="cookie{{ category.id | capitalize }}" data-cookie-category="{{ category.id }}"{% if category.required %} checked disabled{% endif %}>
+              <span>{% if locale == 'en' and (category.id == 'necessary' or category.id == 'essential') %}Necessary{% elif locale == 'en' and category.id == 'analytics' %}Analytics{% elif locale == 'en' and category.id == 'marketing' %}Marketing{% else %}{{ category.label }}{% endif %}</span>
+            </label>
+            <p>{% if locale == 'en' and (category.id == 'necessary' or category.id == 'essential') %}Required for the preference controls to work.{% elif locale == 'en' and category.id == 'analytics' %}Helps understand anonymous use of a live store; disabled by default in this demo.{% elif locale == 'en' and category.id == 'marketing' %}Would support tailored messages in a live store; disabled by default in this demo.{% else %}{{ category.description }}{% endif %}</p>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
-      </div>
+      </details>
     </div>
     <div class="cookie-banner__actions">
-      <button class="btn btn--primary" id="cookieAcceptAll">Alle akzeptieren</button>
-      <button class="btn btn--outline" id="cookieSaveSelection">Auswahl speichern</button>
+      <button class="btn btn--primary" id="cookieAcceptAll">{% if locale == 'en' %}Accept all{% else %}Alle akzeptieren{% endif %}</button>
+      <button class="btn btn--outline" id="cookieSaveSelection">{% if locale == 'en' %}Save selection{% else %}Auswahl speichern{% endif %}</button>
     </div>
   </div>
-</div>
+</aside>

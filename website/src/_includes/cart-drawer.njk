@@ -1,25 +1,2 @@
 <div class="cart-overlay" id="cartOverlay"></div>
-<div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-  <div class="cart-drawer__header">
-    <h3 class="cart-drawer__title" id="cartTitle">Warenkorb</h3>
-    <button class="cart-drawer__close" id="cartClose" aria-label="Warenkorb schließen">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-  </div>
-  <div class="cart-drawer__body" id="cartDrawerBody">
-    <div class="cart-drawer__empty" id="cartEmptyState">
-      <p>Ihr Warenkorb ist leer</p>
-      <a href="/collection/" class="btn btn--primary">Kollektion entdecken</a>
-    </div>
-    <div class="cart-drawer__items" id="cartItems" hidden></div>
-  </div>
-  <div class="cart-drawer__footer">
-    <div class="cart-drawer__shipping-note">Kostenloser Versand ab 75&euro; mit DHL</div>
-    <div class="cart-drawer__total">
-      <span>Zwischensumme</span>
-      <span id="cartSubtotal">&euro;0,00</span>
-    </div>
-    <button class="btn btn--dark btn--full" type="button">Zur Kasse</button>
-    <p class="cart-drawer__legal-note">inkl. MwSt. &bull; Versandkosten an der Kasse</p>
-  </div>
-</div>
+<aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle"><div class="cart-drawer__header"><h2 class="cart-drawer__title" id="cartTitle">{% if locale == 'en' %}Shopping bag{% else %}Warenkorb{% endif %}</h2><button class="cart-drawer__close" id="cartClose" aria-label="{% if locale == 'en' %}Close bag{% else %}Warenkorb schließen{% endif %}">×</button></div><div class="cart-drawer__body"><div class="cart-drawer__empty" id="cartEmptyState"><p>{% if locale == 'en' %}Your bag is empty.{% else %}Ihr Warenkorb ist leer.{% endif %}</p><a href="{{ localePrefix | default('') }}/collection/" class="btn btn--primary">{% if locale == 'en' %}Explore the collection{% else %}Kollektion entdecken{% endif %}</a></div><div class="cart-drawer__items" id="cartItems" hidden></div></div><div class="cart-drawer__footer"><p>{% if locale == 'en' %}Planned DHL shipping is free from €75 in Germany.{% else %}Geplanter DHL-Versand ist ab 75 € in Deutschland kostenlos.{% endif %}</p><div class="cart-drawer__total"><span>{% if locale == 'en' %}Subtotal{% else %}Zwischensumme{% endif %}</span><span id="cartSubtotal">€0,00</span></div><button class="btn btn--dark btn--full" type="button" id="checkoutButton" disabled>{% if locale == 'en' %}Continue to demo checkout{% else %}Zum Demo-Checkout{% endif %}</button><p class="cart-drawer__legal-note">{% if locale == 'en' %}Incl. VAT. No payment or order is created.{% else %}Inkl. MwSt. Es wird keine Zahlung oder Bestellung erstellt.{% endif %}</p></div></aside>

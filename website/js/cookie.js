@@ -29,6 +29,9 @@ function hideBanner() {
 }
 
 function showBanner() {
+  const consent = getConsent();
+  document.getElementById('cookieAnalytics').checked = Boolean(consent?.analytics);
+  document.getElementById('cookieMarketing').checked = Boolean(consent?.marketing);
   document.getElementById('cookieBanner')?.classList.add('is-visible');
 }
 
